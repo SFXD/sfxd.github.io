@@ -705,10 +705,10 @@ li.social-icon:hover{
   margin-bottom: 0;
 }
 .knowledge-base li a { 
-  color: #777; 
+  color: #bbb; 
 }
 .knowledge-base li a:hover { 
-  color: #999; 
+  color: #eee; 
 }
 ul.category-posts li {
   line-height: 1.8em;
