@@ -688,7 +688,7 @@ li.social-icon:hover{
 /*------------------------------------------------ */
 
 .knowledge-base li a, .knowledge-base li a:hover, .faq-top h4 a, .faq-top h4 a:hover {
-  color: #666666;
+  color: #bbbbbb;
 }
 .knowledge-base { 
   margin-bottom: 30px;
@@ -705,10 +705,10 @@ li.social-icon:hover{
   margin-bottom: 0;
 }
 .knowledge-base li a { 
-  color: #bbb; 
+  color: #eee; 
 }
 .knowledge-base li a:hover { 
-  color: #eee; 
+  color: ##CCFFCC; 
 }
 ul.category-posts li {
   line-height: 1.8em;
@@ -921,8 +921,45 @@ h2.faq-section-heading {
         background: #faf8f0;
     }
     
-    #content code {
+    .codeblock {
         display: block;
         padding: 0.5em 1em;
         border: 1px solid #bebab0;
     }
+  
+  blockquote {
+        font-family: "Courier 10 Pitch", Courier, monospace;
+        font-size: 75%;
+        white-space: pre;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -o-pre-wrap;
+    }      
+
+
+/*------------------------------------------------ */
+/* 19 - Table Styles */
+/*------------------------------------------------ */
+
+
+  th {
+         text-align: left;
+        font-size: 110%;
+        line-height: 120%;
+        white-space: pre;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -o-pre-wrap;    
+        background: #faf8f0;             
+    }       
+
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  table, th, td {
+      border: 1px solid black;
+      line-height: 160%;      
+  }
+

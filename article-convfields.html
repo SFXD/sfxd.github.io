@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Salesforce Discord Community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+<link rel="apple-touch-icon" sizes="57x57" href="assets/ico/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/ico/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/ico/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/ico/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/ico/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/ico/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/ico/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/ico/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
+<link rel="manifest" href="assets/ico/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="assets/ico/manifest/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body>
+
+
+    <!-- NAVBAR
+    ================================================== -->
+
+    <div class="banner navbar navbar-static-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <a class="brand" href="index.html"><img src="assets/img/logo.png" width=70px></a>
+
+          <!-- Responsive Navbar -->
+          <div id="nav-main">
+            <ul id="menu" class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="wiki-index.html">Knowledge Base</a></li>
+              <li><a href="faq.html">Faq</a></li>
+              <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+            </ul>
+          </div><!--/.nav-collapse -->
+
+        </div> <!-- /.container -->
+      </div><!-- /.navbar-inner -->
+    </div><!-- /.navbar -->
+
+
+
+    <!-- PAGE HEADER -->
+    <div id="page-header-container">
+      <div class="container">
+        <div class="page-header row">
+          <div class="span8">
+            <h1>The Salesforce Exchange wiki</h1>
+            <p class="tagline">Literally one page</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- PAGE CONTENT -->
+    <div id="wrap" class="container" role="document">
+      <div id="content" class="row">
+        <div id="main" class="single-post span12" role="main">
+          <article class="post type-post">
+            <header>
+              <h1 class="entry-title">Field Conventions</h1>
+              <div class="post-meta">
+                 <time class="updated" datetime="2013-03-25T07:39:09+00:00" pubdate>Last Updated: 1 day ago </time>              
+               </div>
+            </header>
+            <div class="page-main">
+
+<p>All Naming Conventions Are <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a> and <a href="https://tools.ietf.org/html/rfc6919">RFC 6919</a> compliant.</p>
+<p>Download our <a href="content/FieldConventions.pdf">much more readable PDF</a></p>
+
+<h2 id="generalconventions">General Conventions</h2>
+
+<ol>
+<li>All field <code>API</code> names <strong><em>MUST</em></strong> be written in English, even when the label is in another language.</li>
+
+<li>All field <code>API</code> names <strong><em>MUST</em></strong> be written in <a href="https://en.wikipedia.org/wiki/PascalCase" target="_blank">PascalCase</a>.</li>
+
+<li>Fields <strong><em>SHOULD NOT</em></strong> contain an underscore in the fields name, except where explicitely defined otherwise in these conventions.</li>
+
+<li>Fields generally <strong><em>MUST (but you probably won't)</em></strong> contain a description.</li>
+
+<li>In all cases where the entire purpose of the field is not evident by reading the name, the field <strong><em>MUST</em></strong> contain a description.</li>
+
+<li>If the purpose of the field is ambiguous, the field <strong><em>MUST</em></strong> contain a help text. In cases where the purpose is clear, the help text <strong><em>COULD</em></strong> also be defined for clarity's sake.</li>
+</ol>
+
+<p>Field API names should respect the following prefixes and suffixes. <em>\\</em>2*
+Prefixes and Suffixes <strong><em>SHALL NOT</em></strong> be prepended by an underscore.</p>
+
+<table>
+  <th>Field Type</th><th>Prefix</th><th>Suffix</th>
+  <tr><td>MasterDetail</td><td></td><td><code>Ref</code></td></tr>
+<tr><td>Lookup</td><td></td><td><code>Ref</code></td></tr>
+<tr><td>Formula</td><td></td><td><code>Auto</code></td></tr>
+<tr><td>Rollup Summary</td><td></td><td><code>Auto</code></td></tr>
+<tr><td>Filled by automation (APEX) <em>\\</em>1</td><td></td><td><code>Trig</code></td></tr>
+<tr><td>Picklist or Multipicklist</td><td></td><td><code>Pick</code></td></tr>
+<tr><td>Boolean</td><td><code>Is</code> or <code>IsCan</code> *\\</em>3*</td><td></td></tr>
+</table>
+
+
+<h2 id="groupingfields">Grouping fields</h2>
+
+<ol>
+<li>If the organization is home to multiple services, the field <code>API</code> name <strong><em>SHOULD</em></strong> be prepended with the name of the service that required the field, followed by an underscore.</li>
+</ol>
+
+<ul>
+<li>This <strong><em>MUST NOT</em></strong> be the case if there is only one service using the object.</li>
+</ul>
+
+<ol>
+<li>If several services use the field, or the field was originally required by a service before being used by others: the field <code>API</code> name <strong><em>MUST (but you probably won't)</em></strong> be prepended with the name of the service that uses the field the most, followed by an underscore. The Description of the field <strong><em>MUST</em></strong> indicate which services use the field. <em>\\</em>4*</li>
+
+<li>In the case the field is use differently by different services, the Description of the field <strong><em>MUST</em></strong> contain an explicit description of each use.</li>
+
+<li>If a field is created to host a value for technical reasons, but is not or should not be displayed to the users, the <code>API</code> name <strong><em>MUST</em></strong> be prefixed with TECH and an underscore.</li>
+
+<li>If more than 50 fields are created on an object, a consultant <strong><em>SHOULD</em></strong> consider using prefixes to group fields in the same manner as technical fields, in the format of $GROUPNAME followed by an underscore.</li>
+</ol>
+
+<h2 id="examples">Examples</h2>
+
+<table>
+<th>Object</th><th>Field type</th><th>Comment</th><th>Field Label</th><th>Field API Name</th><th>Field Description</th>
+<tr><td>Case</td><td>Lookup</td><td>Looks up to Account</td><td>Service Provider</td><td>ServiceProviderRef__c</td><td>Links the case to the Service Provider who will conduct the task at the client's.</td></tr>
+<tr><td>Account</td><td>Formula</td><td>Made for the Accounting department only</td><td>Solvability</td><td>Accounting_SolvabilityAuto__c<td>Calculates solvability based on revenue and expenses. Sensitive data, should not be shared.</td></tr>
+</td><td>Contact</td><td>Checkbox</td><td></td><td>Sponsored ?</td><td>IsSponsored__c</td><td>Checked if the
+contact was
+sponsored into the
+program by another
+client.</td></tr>
+</table>
+<br/>
+<br/>
+<br/>
+
+
+<blockquote>
+  <p><em>\\</em>1 Workflows, Process Builders and Flows are not included in this logic because these automations either allow field name modifications with no error, or can be modified by an administrator. If fields are created for the sole purpose of being filled by automation (<em>e.g.</em> fields that will be used in roll-up summaries), a consultant <strong><em>WOULD PROBABLY</em></strong> use the Trig suffix anyway, to indicate that users cannot set the data themselves.*</p>
+  
+  <p><em>\\</em>2 while norms for other field types were considered, e.g. to make sure number, currency and percentage fields were easily recognizable, they were discarded as being too restrictive for an admin. fixing type mismatches in this case is easily solved by casting the value to the correct type using either TEXT() or VALUE() functions.*</p>
+  
+  <p><em>\\</em>3 <code>IsCan</code> replaces "Can", <strong>e.g.</strong> <code>CanActivateContract</code> becomes <code>IsCanActivateContract</code>. This is to enable searching for all checkboxes on a page withasingle query.*</p>
+  
+  <p><em>\\</em>4 While modifying API names post-deployment is notoriously complicated, making sure that field are properly recognizable is better in the long term than aviding a maintenance during a project. Such modifications <strong><em>SHOULD</em></strong> be taken into acccount while doing estimations.*</p>
+</blockquote>
+            </div>
+          </article>
+
+        </div>
+      </div><!-- /#content -->
+    </div><!-- /#wrap -->
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="main-footer">
+      </div>
+      <!-- Sub footer -->
+      <div class="sub-footer">
+        <div class="container">
+          <div id="social-icons">
+            <ul>
+              <li class="social-icon discord">
+                <a class="fade-img" href="http://discord.gg" target="_blank" rel="tooltip" title="Discord">
+                  <img src="assets/img/social/icons_discord.png" alt="Discord" />
+                </a>
+              </li>
+              <li class="social-icon salesforce">
+                <a class="fade-img" href="http://www.salesforce.com" target="_blank" rel="tooltip" title="Salesforce">
+                  <img src="assets/img/social/icons_salesforce.png" alt="Salesforce" />
+                </a>
+              </li>
+            </ul>
+          </div> 
+          <div class="copyright-text">Copyright 2018. Powered by <a href='http://github.io/'>GitHub</a>
+          </div>  
+        </div>   
+      </div>
+    </footer>
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="assets/js/application.js"></script>
+
+    <script src="assets/js/holder/holder.js"></script>
+
+  </body>
+</html>
