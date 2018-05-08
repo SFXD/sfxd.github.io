@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Salesforce Discord Community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+<link rel="apple-touch-icon" sizes="57x57" href="assets/ico/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/ico/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/ico/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/ico/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/ico/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/ico/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/ico/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/ico/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
+<link rel="manifest" href="assets/ico/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="assets/ico/manifest/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body>
+
+
+    <!-- NAVBAR
+    ================================================== -->
+
+    <div class="banner navbar navbar-static-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <a class="brand" href="index.html"><img src="assets/img/logo.png" width=70px></a>
+
+          <!-- Responsive Navbar -->
+          <div id="nav-main">
+            <ul id="menu" class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="wiki-index.html">Knowledge Base</a></li>
+              <li><a href="faq.html">Faq</a></li>
+              <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+            </ul>
+          </div><!--/.nav-collapse -->
+
+        </div> <!-- /.container -->
+      </div><!-- /.navbar-inner -->
+    </div><!-- /.navbar -->
+
+
+
+    <!-- PAGE HEADER -->
+    <div id="page-header-container">
+      <div class="container">
+        <div class="page-header row">
+          <div class="span8">
+            <h1>The Salesforce Exchange wiki</h1>
+            <p class="tagline">Literally one page</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- PAGE CONTENT -->
+    <div id="wrap" class="container" role="document">
+      <div id="content" class="row">
+        <div id="main" class="single-post span12" role="main">
+          <article class="post type-post">
+            <header>
+              <h1 class="entry-title">Workflow Naming Convention</h1>
+              <div class="post-meta">
+                 <time class="updated" datetime="2013-03-25T07:39:09+00:00" pubdate>Last Updated: 1 day ago </time>              
+               </div>
+            </header>
+            <div class="page-main">
+<p>All Naming Conventions Are <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a> and <a href="https://tools.ietf.org/html/rfc6919">RFC 6919</a> compliant.</p>
+
+<p><h1> Triggers</h1>
+
+<p>A trigger <strong><em>MUST</em></strong> always be named after what Triggers the workflow, and not the actions.
+  In all cases possible, the number of triggers per object <strong><em>SHOULD</em></strong> be limited - reading the existing trigger names allows using existing ones when possible.
+  Knowing that all automations count towards Salesforce alloted CPU time per record, a consultant <strong><em>SHOULD</em></strong> consider how to limit the number of workflows in all cases.</p>
+
+<ol>
+<li>All Worfklow Triggers MUST contain a Bypass Rule check.</li>
+<ul><li> - If more Granularity is needed, a consultant <b>MAY</b> want to create a <code>Hierarchical Custom Setting</code> to implement the bypass.</li>
+ <li>- This bypass can be added to the more common User-based bypass, but <b>SHOULD NOT</b> supplant it.</li></ul>
+ <li>A Workflow Trigger <b>SHALL</b> always start by <code>WF</code>, followed by a number corresponding to the number of workflows on the triggering Object, followed by an underscore.</li>
+</ol>
+
+<ol>
+<li>The WorkFlow Trigger name <strong>MUST</strong> try to explain in a concise manner what triggers the WF.
+Note that conciseness trumps clarity for this field.</li>
+
+<li>All Workflows Trigger MUST have a description detailing how they are triggered.</li>
+
+<li>Wherever possible, a Consultant <strong><em>SHOULD</em></strong> use operators over functions.</li>
+</ol>
+
+  <h1>Examples</h1>
+
+<table>
+  <th>Object</th><th>WF Name</th><th>Description</th><th>WF Rule</th>
+  <tr><td>Invoice</td><td>WF01_WhenInvoicePaid</td><td>This WF triggers when the invoice Status is set to "Paid". Triggered from another automation.</td><td><code>!$User.BypassWF__c &amp;&amp; ISPICKVAL(Status__c, "Paid")</code></td></tr>
+  <tr><td>Invoice</td><td>WF02_CE_WhenStatusChanges</td><td>This WF triggers every time the Status of the invoice is changed.</td><td><code>!$User.BypassWF__c &amp;&amp; ISCHANGED(Status__c)</code></td></tr>
+  <tr><td>Contact</td><td>WF01_C_IfStreetBlank</td><td>This WF triggers on creation if the street is Blank</td><td><code>!$User.BypassWF__c &amp;&amp; ISBLANK(MailingStreet)</code></td></tr>
+</table>
+<br/><br/><br/>
+<p><h1> Field Updates</h1>
+
+<ol>
+<li>A Workflow Field Update <strong><em>MUST</em></strong> Start with <code>FU</code>, followed by a number corresponding to the number of field updates on the triggering Object.</li>
+
+<li>A Workflow Field Update <strong><em>SHOULD</em></strong> contain the Object name, or an abbreviation thereof, in the Field Update Name. <em>\\\\\\\\</em>2*</li>
+
+<li>A Workflow Field Update <strong><em>MUST</em></strong> be named after the field that it updates, and then the values it sets, in the most concise manner possible.</li>
+
+<li>The Description of a Workflow Field Update<strong><em>SHOULD</em></strong> give precise information on what the field is set to.</li>
+</ol>
+
+<blockquote>
+  <h4 id="examples-1">Examples</h4>
+  
+  <p>|Object|FU Name|Description|</p>
+</blockquote>
+
+<p><h1> Email Alerts</h1>
+
+<ol>
+<li><p>A Workflow Email Alert <strong><em>MUST</em></strong> Start with <code>EA</code>, followed by a number corresponding to the number of email alerts on the triggering Object.</p></li>
+
+<li><p>A Workflow Email Alert <strong><em>SHOULD</em></strong> contain the Object name, or an abbreviation thereof, in the Field Update Name. <em>\\\\\\\\</em>2*</p></li>
+
+<li><p>A Workflow Email Alert's Unique Name and Description <strong><em>SHOULD</em></strong> contain the exact same information, except where a longer description is absolutely necessary. <em>\\\\\\\\</em>3*</p></li>
+
+<li><p>A Workflow Email Alert <strong><em>SHOULD</em></strong> be named after the type of email it sends, or the reason the email is sent.</p>
+
+<p>Note that declaratively, the Name of the template used to send the email is always shown by default in Email Alert lists.</p></li>
+</ol>
+
+<blockquote>
+  <h4 id="examples-2">Examples</h4>
+  
+  <p>|Object|EA Name|Description|
+  |------|-------|-----------|
+  |Invoice|EA01<em>Inv</em>SendFirstPaymentReminder|EA01<em>INV</em>SendFirstReminder|
+  |Invoice|EA02<em>Inv</em>SendSecondPaymentReminder|EA02<em>Inv</em>SendSecondPaymentReminder|
+  |Contact|EA01<em>SendBirthdayEmail|EA01</em>Con_SendBirthdayEmail.|</p>
+</blockquote>
+
+<p><h1> Workflow Tasks</h1>
+
+<ol>
+<li><p>A Workflow Task Unique Name <strong><em>MUST</em></strong> Start with <code>TSK</code>, followed by a number corresponding to the number of tasks on the triggering Object.</p></li>
+
+<li><p>A Workflow Task Unique Name <strong><em>COULD</em></strong> contain the Object name, or an abbreviation thereof, in the Field Update Name. This is to avoid different conventions for Workflow Actions in general.</p>
+
+<p>Most information about tasks are displayed by default declaratively, and creating a task should rarely impact internal processes or external processes in such a manner that urgent debugging is required.
+As Users will in all cases never see the Unique Name of a Workflow Task, it is not needed nor recommended to norm them more than necessary.</p>
+
+<h3 id="outboundmessages">Outbound Messages</h3></li>
+
+<li><p>An Outbound Message Name <strong><em>MUST</em></strong> Start with <code>OM</code>, followed by a number corresponding to the number of outbound mesages on the triggering Object.</p></li>
+
+<li><p>An Outbound Message Name <strong><em>COULD</em></strong> contain the Object name, or an abbreviation thereof, in the Field Update Name. This is to avoid different conventions for Workflow Actions in general.</p></li>
+
+<li><p>An Outbound Message <strong><em>MUST</em></strong> be named after the Service that it send information to, and then information it sends in the most concise manner possible.</p></li>
+
+<li><p>The Description of An Outbound Message <strong><em>SHOULD</em></strong> give precise information on why the Outbound Message is created.</p></li>
+
+<li><p>Listing the fields sent by the Outbound Message is <strong><em>NOT RECOMMENDED</em></strong>.</p></li>
+</ol>
+
+<blockquote>
+  <h4 id="examples-3">Examples</h4>
+  
+  <p>|Object|OM Name|Description|
+  |------|-------|-----------|
+  |Invoice|OM01<em>Inv</em>SendBasicInfo|Send the invoice header to the client software.|
+  |Invoice|OM02<em>Inv</em>SendStatusPaid|Sends a flag that the invoice was paid to the client software.|
+  |Contact|OM01_SendContactInfo|Sends most contact information to the internal Directory.|</p>
+</blockquote>
+
+<p><em>\\\\\\\\</em>1 This is also the default Salesforce setting.*
+  <em>\\\\\\\\</em>2 While Field Updates are segregated by Object when viewed through an IDE or through code, the UI offers no such ease of use. If this is not done, a consultant <strong><em>WOULD PROBABLY</em></strong> create list views for field updates per Object.*
+  <em>\\\\\\\\</em>3 Email Alert's Unique Names are generated from the Description by default in Salesforce. As Email Alerts can only send emails, this convention describes a less exhaustive solution than could be, at the profit of speed while creating Email Alerts declaratively.*</p>
+            </div>
+          </article>
+
+        </div>
+      </div><!-- /#content -->
+    </div><!-- /#wrap -->
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="main-footer">
+      </div>
+      <!-- Sub footer -->
+      <div class="sub-footer">
+        <div class="container">
+          <div id="social-icons">
+            <ul>
+              <li class="social-icon discord">
+                <a class="fade-img" href="http://discord.gg" target="_blank" rel="tooltip" title="Discord">
+                  <img src="assets/img/social/icons_discord.png" alt="Discord" />
+                </a>
+              </li>
+              <li class="social-icon salesforce">
+                <a class="fade-img" href="http://www.salesforce.com" target="_blank" rel="tooltip" title="Salesforce">
+                  <img src="assets/img/social/icons_salesforce.png" alt="Salesforce" />
+                </a>
+              </li>
+            </ul>
+          </div> 
+          <div class="copyright-text">Copyright 2018. Powered by <a href='http://github.io/'>GitHub</a>
+          </div>  
+        </div>   
+      </div>
+    </footer>
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="assets/js/application.js"></script>
+
+    <script src="assets/js/holder/holder.js"></script>
+
+  </body>
+</html>
