@@ -136,11 +136,15 @@ Note that conciseness trumps clarity for this field.</li>
 <li>The Description of a Workflow Field Update<strong><em>SHOULD</em></strong> give precise information on what the field is set to.</li>
 </ol>
 
-<blockquote>
+
   <h4 id="examples-1">Examples</h4>
   
-  <p>|Object|FU Name|Description|</p>
-</blockquote>
+<table>
+  <th>Object</th><th>FU Name</th><th>Description</th>
+  <tr><td>Contact</td><td>FU01_SetEmailOptOut</td><td>Sets the Email Opt Out checkbox to TRUE.</td></tr>
+  <tr><td>Invoice</td><td>FU02_SetFinalBillingStreet</td><td>Calculates the billing street based on if the client is billed alone, via an Agency, or via a mother company. Part of three updates that handle this adress.</td></tr>
+  <tr><td>Contact</td><td>FU03_CalculateFinalAmount</td><td>Uses current Tax settings and information to set the final amount</td></tr>
+</table>  
 
 <p><h1> Email Alerts</h1>
 
@@ -156,15 +160,15 @@ Note that conciseness trumps clarity for this field.</li>
 <p>Note that declaratively, the Name of the template used to send the email is always shown by default in Email Alert lists.</p></li>
 </ol>
 
-<blockquote>
   <h4 id="examples-2">Examples</h4>
-  
-  <p>|Object|EA Name|Description|
-  |------|-------|-----------|
-  |Invoice|EA01<em>Inv</em>SendFirstPaymentReminder|EA01<em>INV</em>SendFirstReminder|
-  |Invoice|EA02<em>Inv</em>SendSecondPaymentReminder|EA02<em>Inv</em>SendSecondPaymentReminder|
-  |Contact|EA01<em>SendBirthdayEmail|EA01</em>Con_SendBirthdayEmail.|</p>
-</blockquote>
+
+<table>
+  <th>Object</th><th>EA Name</th><th>Description</th>
+  <tr><td>Invoice</td><td>EA01_Inv_SendFirstPaymentReminder</td><td>EA01_Inv_SendFirstPaymentReminder.</td></tr>
+  <tr><td>Invoice</td><td>EA02_Inv_SendSecondPaymentReminder</td><td>SendSecondPaymentReminder</td></tr>
+  <tr><td>Contact</td><td>EA03_Con_SendBirthdayEmail</td><td>EA03_Con_SendBirthdayEmail</td></tr>
+</table>  
+
 
 <p><h1> Workflow Tasks</h1>
 
@@ -189,19 +193,19 @@ As Users will in all cases never see the Unique Name of a Workflow Task, it is n
 <li><p>Listing the fields sent by the Outbound Message is <strong><em>NOT RECOMMENDED</em></strong>.</p></li>
 </ol>
 
-<blockquote>
   <h4 id="examples-3">Examples</h4>
   
-  <p>|Object|OM Name|Description|
-  |------|-------|-----------|
-  |Invoice|OM01<em>Inv</em>SendBasicInfo|Send the invoice header to the client software.|
-  |Invoice|OM02<em>Inv</em>SendStatusPaid|Sends a flag that the invoice was paid to the client software.|
-  |Contact|OM01_SendContactInfo|Sends most contact information to the internal Directory.|</p>
-</blockquote>
+<table>
+  <th>Object</th><th>EA Name</th><th>Description</th>
+  <tr><td>Invoice</td><td>OM01_Inv_SendBasicInfo</td><td>Send the invoice header to the client software.</td></tr>
+  <tr><td>Invoice</td><td>OM02_Inv_SendStatusPaid</td><td>Sends a flag that the invoice was paid to the client software.</td></tr>
+  <tr><td>Contact</td><td>OM01_SendContactInfo</td><td>Sends most contact information to the internal Directory.</td></tr>
+</table>  
 
-<p><em>\\\\\\\\</em>1 This is also the default Salesforce setting.*
-  <em>\\\\\\\\</em>2 While Field Updates are segregated by Object when viewed through an IDE or through code, the UI offers no such ease of use. If this is not done, a consultant <strong><em>WOULD PROBABLY</em></strong> create list views for field updates per Object.*
-  <em>\\\\\\\\</em>3 Email Alert's Unique Names are generated from the Description by default in Salesforce. As Email Alerts can only send emails, this convention describes a less exhaustive solution than could be, at the profit of speed while creating Email Alerts declaratively.*</p>
+
+<p>*1 This is also the default Salesforce setting.*
+  *2 While Field Updates are segregated by Object when viewed through an IDE or through code, the UI offers no such ease of use. If this is not done, a consultant <strong><em>WOULD PROBABLY</em></strong> create list views for field updates per Object.*
+  *3 Email Alert's Unique Names are generated from the Description by default in Salesforce. As Email Alerts can only send emails, this convention describes a less exhaustive solution than could be, at the profit of speed while creating Email Alerts declaratively.*</p>
             </div>
           </article>
 
