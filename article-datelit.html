@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Salesforce Discord Community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+<link rel="apple-touch-icon" sizes="57x57" href="assets/ico/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/ico/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/ico/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/ico/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/ico/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/ico/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/ico/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/ico/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
+<link rel="manifest" href="assets/ico/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="assets/ico/manifest/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body>
+
+
+    <!-- NAVBAR
+    ================================================== -->
+
+    <div class="banner navbar navbar-static-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <a class="brand" href="index.html"><img src="assets/img/logo.png" width=70px></a>
+
+          <!-- Responsive Navbar -->
+          <div id="nav-main">
+            <ul id="menu" class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="wiki-index.html">Knowledge Base</a></li>
+              <li><a href="faq.html">Faq</a></li>
+              <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+            </ul>
+          </div><!--/.nav-collapse -->
+
+        </div> <!-- /.container -->
+      </div><!-- /.navbar-inner -->
+    </div><!-- /.navbar -->
+
+
+
+    <!-- PAGE HEADER -->
+    <div id="page-header-container">
+      <div class="container">
+        <div class="page-header row">
+          <div class="span8">
+            <h1>The Salesforce Exchange wiki</h1>
+            <p class="tagline">Literally one page</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- PAGE CONTENT -->
+    <div id="wrap" class="container" role="document">
+      <div id="content" class="row">
+        <div id="main" class="single-post span12" role="main">
+          <article class="post type-post">
+            <header>
+              <h1 class="entry-title">Date Literals</h1>
+              <div class="post-meta">
+                 <time class="updated" datetime="2013-03-25T07:39:09+00:00" pubdate>Last Updated: 1 day ago </time>              
+               </div>
+            </header>
+            <div class="page-main">
+              <hr />
+<p>When creating a report or a list view, you sometimes need to filter based on a dynamic value.
+Say you want the records of last week for example. In a report, you could do that with the global filter on top of the reporting engine.
+But say you want Opportunities closed between the Last month and the Last week ?</p>
+<p>Well that's when Date Literals come in.</p>
+<table>
+<thead>
+<tr>
+<th>Literal</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YESTERDAY</td>
+<td>Starts at 12:00:00 AM on the day before the current day and continues for 24 hours.</td>
+</tr>
+<tr>
+<td>TODAY</td>
+<td>Starts at 12:00:00 AM on the current day and continues for 24 hours.</td>
+</tr>
+<tr>
+<td>TOMORROW</td>
+<td>Starts at 12:00:00 AM. on the day after the current day and continues for 24 hours.</td>
+</tr>
+<tr>
+<td>LAST WEEK</td>
+<td>Starts at 12:00:00 AM on the first day of the week before the current week and continues for seven days.</td>
+</tr>
+<tr>
+<td>THIS WEEK</td>
+<td>Starts at 12:00:00 AM on the first day of the current week and continues for seven days.</td>
+</tr>
+<tr>
+<td>NEXT WEEK</td>
+<td>Starts at 12:00:00 AM on the first day of the week after the current week and continues for seven days.</td>
+</tr>
+<tr>
+<td>LAST n WEEKS</td>
+<td>Starts at 12:00:00 AM on the first day of the week that started n weeks before the current week, and continues up to 11:59 PM on the last day of the week before the current week.</td>
+</tr>
+<tr>
+<td>NEXT n WEEKS</td>
+<td>Starts at 12:00:00 AM on the first day of the week after the current week and continues for n times seven days.</td>
+</tr>
+<tr>
+<td>n WEEKS AGO</td>
+<td>Starts at 12:00:00 AM on the first day of the week that started n weeks before the start of the current week and continues for seven days.</td>
+</tr>
+<tr>
+<td>LAST MONTH</td>
+<td>Starts at 12:00:00 AM on the first day of the month before the current month and continues for all the days of that month.</td>
+</tr>
+<tr>
+<td>THIS MONTH</td>
+<td>Starts at 12:00:00 AM on the first day of the current month and continues for all the days of that month.</td>
+</tr>
+<tr>
+<td>NEXT n MONTHS</td>
+<td>Starts at 12:00:00 AM on the first day of the month after the current month and continues until the end of the nth month.</td>
+</tr>
+<tr>
+<td>LAST n MONTHS</td>
+<td>Starts at 12:00:00 AM on the first day of the month that started n months before the current month and continues up to 11:59 PM on the last day of the month before the current month.</td>
+</tr>
+<tr>
+<td>n MONTHS AGO</td>
+<td>Starts at 12:00:00 AM on the first day of the month that started n months before the start of the current month and continues for all the days of that month.</td>
+</tr>
+<tr>
+<td>NEXT MONTH</td>
+<td>Starts at 12:00:00 AM on the first day of the month after the current month and continues for all the days of that month.</td>
+</tr>
+<tr>
+<td>LAST 90 DAYS</td>
+<td>Starts at 12:00:00 AM 90 days before the current day and continues up to the current second. (The range includes today.)</td>
+</tr>
+<tr>
+<td>NEXT 90 DAYS</td>
+<td>Starts at 12:00:00 AM on the day after the current day and continues for 90 days. (The range does not include today.)</td>
+</tr>
+<tr>
+<td>LAST n DAYS</td>
+<td>Starts at 12:00:00 AM n days before the current day and continues up to the current second. (The range includes today. Using this date value includes records from n + 1 days ago up to the current day.)</td>
+</tr>
+<tr>
+<td>NEXT n DAYS</td>
+<td>Starts at 12:00:00 AM on the next day and continues for the next n days. (The range does not include today.)</td>
+</tr>
+<tr>
+<td>n DAYS AGO</td>
+<td>Starts at 12:00:00 AM on the day n days before the current day and continues for 24 hours. (The range does not include today.)</td>
+</tr>
+<tr>
+<td>LAST QUARTER</td>
+<td>Starts at 12:00:00 AM on the first day of the calendar quarter before the current calendar quarter and continues to the end of that quarter.</td>
+</tr>
+<tr>
+<td>THIS QUARTER</td>
+<td>Starts at 12:00:00 AM on the first day of the current calendar quarter and continues to the end of the quarter.</td>
+</tr>
+<tr>
+<td>NEXT QUARTER</td>
+<td>Starts at 12:00:00 AM on the first day of the calendar quarter after the current calendar quarter and continues to the end of that quarter.</td>
+</tr>
+<tr>
+<td>LAST n QUARTERS</td>
+<td>Starts at 12:00:00 AM on the first day of the calendar quarter n quarters ago and continues to the end of the calendar quarter before the current quarter. (The range does not include the current quarter.)</td>
+</tr>
+<tr>
+<td>NEXT n QUARTERS</td>
+<td>Starts at 12:00:00 AM on the first day of the calendar quarter after the current quarter and continues to the end of the calendar quarter n quarters in the future. (The range does not include the current quarter.)</td>
+</tr>
+<tr>
+<td>n QUARTERS AGO</td>
+<td>Starts at 12:00:00 AM on the first day of the calendar quarter n quarters before the current calendar quarter and continues to the end of that quarter.</td>
+</tr>
+<tr>
+<td>LAST YEAR</td>
+<td>Starts at 12:00:00 AM on January 1 of the year before the current year and continues through the end of December 31 of that year.</td>
+</tr>
+<tr>
+<td>THIS YEAR</td>
+<td>Starts at 12:00:00 AM on January 1 of the current year and continues through the end of December 31 of the current year.</td>
+</tr>
+<tr>
+<td>NEXT YEAR</td>
+<td>Starts at 12:00:00 AM on January 1 of the year after the current year and continues through the end of December 31 of that year.</td>
+</tr>
+<tr>
+<td>n YEARS AGO</td>
+<td>Starts at 12:00:00 AM on January 1 of the calendar year n years before the current calendar year and continues through the end of December 31 of that year.</td>
+</tr>
+<tr>
+<td>LAST n YEARS</td>
+<td>Starts at 12:00:00 am on January 1, n+1 years ago. The range ends on December 31 of the year before the current year.</td>
+</tr>
+<tr>
+<td>NEXT n YEARS</td>
+<td>Starts at 12:00:00 AM on January 1 of the year after the current year and continues through the end of December 31 of the nth year.</td>
+</tr>
+<tr>
+<td>LAST FISCAL QUARTER</td>
+<td>Starts at 12:00:00 AM on the first day of the fiscal quarter before the current fiscal quarter and continues through the last day of that fiscal quarter. The fiscal quarter is defined on the Fiscal Year page in Setup.</td>
+</tr>
+<tr>
+<td>THIS FISCAL QUARTER</td>
+<td>Starts at 12:00:00 AM on the first day of the current fiscal quarter and continues through the end of the last day of the current fiscal quarter. The fiscal quarter is defined on the Fiscal Year page in Setup.</td>
+</tr>
+<tr>
+<td>NEXT FISCAL QUARTER</td>
+<td>Starts at 12:00:00 AM on the first day of the fiscal quarter after the current fiscal quarter and continues through the last day of that fiscal quarter. (The range does not include the current quarter.) The fiscal quarter is defined on the Fiscal Year page in Setup.</td>
+</tr>
+<tr>
+<td>LAST n FISCAL QUARTERS</td>
+<td>Starts at 12:00:00 AM on the first day of the fiscal quarter n fiscal quarters ago and continues through the end of the last day of the previous fiscal quarter. (The range does not include the current fiscal quarter.) The fiscal quarter is defined on the Fiscal Year page in Setup.</td>
+</tr>
+<tr>
+<td>NEXT n FISCAL QUARTERS</td>
+<td>Starts at 12:00:00 AM on the first day of the fiscal quarter after the current fiscal quarter and continues through the end of the last day of the nth fiscal quarter. (The range does not include the current fiscal quarter.) The fiscal quarter is defined on the Fiscal Year page in Setup.</td>
+</tr>
+<tr>
+<td>n FISCAL QUARTERS AGO</td>
+<td>Starts at 12:00:00 AM on the first day of the fiscal quarter n fiscal quarters before the current fiscal quarter and continues through the end of the last day of that fiscal quarter.</td>
+</tr>
+<tr>
+<td>LAST FISCAL YEAR</td>
+<td>Starts at 12:00:00 AM on the first day of the fiscal year before the current fiscal year and continues through the end of the last day of that fiscal year. The fiscal quarter is defined on the Fiscal Year page in Setup.</td>
+</tr>
+<tr>
+<td>THIS FISCAL YEAR</td>
+<td>Starts at 12:00:00 AM on the first day of the current fiscal year and continues through the end of the last day of the fiscal year. The fiscal quarter is defined on the Fiscal Year page in Setup.</td>
+</tr>
+<tr>
+<td>NEXT FISCAL YEAR</td>
+<td>Starts at 12:00:00 AM on the first day of the fiscal year after the current fiscal year and continues through the end of the last day of that fiscal year. The fiscal quarter is defined on the Fiscal Year page in Setup.</td>
+</tr>
+<tr>
+<td>LAST n FISCAL YEARS</td>
+<td>Starts at 12:00:00 AM on the first day of the fiscal year n fiscal years ago and continues through the end of the last day of the fiscal year before the current fiscal year. (The range does not include the current fiscal year.) The fiscal quarter is defined on the Fiscal Year page in Setup.</td>
+</tr>
+<tr>
+<td>NEXT n FISCAL YEARS</td>
+<td>Starts at 12:00:00 AM on the first day of the fiscal year after the current fiscal year and continues through the end of the last day of the nth fiscal year. (The range does not include the current fiscal year.) The fiscal quarter is defined on the Fiscal Year page in Setup.</td>
+</tr>
+<tr>
+<td>n FISCAL YEARS AGO</td>
+<td>Starts at 12:00:00 AM on the first day of the fiscal year n fiscal years ago and continues through the end of the last day of that fiscal year.</td>
+</tr>
+</tbody>
+</table></div></div>
+
+          </article>
+
+        </div>
+      </div><!-- /#content -->
+    </div><!-- /#wrap -->
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="main-footer">
+      </div>
+      <!-- Sub footer -->
+      <div class="sub-footer">
+        <div class="container">
+          <div id="social-icons">
+            <ul>
+              <li class="social-icon discord">
+                <a class="fade-img" href="http://discord.gg" target="_blank" rel="tooltip" title="Discord">
+                  <img src="assets/img/social/icons_discord.png" alt="Discord" />
+                </a>
+              </li>
+              <li class="social-icon salesforce">
+                <a class="fade-img" href="http://www.salesforce.com" target="_blank" rel="tooltip" title="Salesforce">
+                  <img src="assets/img/social/icons_salesforce.png" alt="Salesforce" />
+                </a>
+              </li>
+            </ul>
+          </div> 
+          <div class="copyright-text">Copyright 2018. Powered by <a href='http://github.io/'>GitHub</a>
+          </div>  
+        </div>   
+      </div>
+    </footer>
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="assets/js/application.js"></script>
+
+    <script src="assets/js/holder/holder.js"></script>
+
+  </body>
+</html>
