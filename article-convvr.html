@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,6 +44,7 @@
 
     <!-- NAVBAR
     ================================================== -->
+
     <div class="banner navbar navbar-static-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
@@ -66,6 +66,7 @@
     </div><!-- /.navbar -->
 
 
+
     <!-- PAGE HEADER -->
     <div id="page-header-container">
       <div class="container">
@@ -78,64 +79,85 @@
         </div>
       </div>
     </div>
-
     <!-- PAGE CONTENT -->
     <div id="wrap" class="container" role="document">
       <div id="content" class="row">
-        <div id="main" class="knowledge-base span9" role="main">
-          <div class="row knowledge-base-row">
-            <div class="span3">
-              <h2>
-                Meta Stuff
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="fab fa-blogger"></i> <a href="article-feeds.html">Blogs list</a></li>
-                <li><i class="fas fa-book"></i> <a href="article-basic.html">Discord server basic info</a></li>
-              </ul>
-            </div>
-            <div class="span3">
-              <h2>
-                Salesforce things
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="fas fa-font"></i> <a href="article-summer18.html">Summer 18 Abridged</a></li>
-                <li><i class="fas fa-book"></i> <a href="article-convfields.html">Field Naming Conventions</a></li>                
-                <li><i class="fas fa-book"></i> <a href="article-convwf.html">Workflow Naming Conventions</a></li>                
-                <li><i class="fas fa-book"></i> <a href="article-convvr.html">Validation Rule Naming Conventions</a></li>                
-              </ul>
-            </div>
+        <div id="main" class="single-post span12" role="main">
+          <article class="post type-post">
+            <header>
+              <h1 class="entry-title">Validation Rules Naming Convention</h1>
+              <div class="post-meta">
+                 <time class="updated" datetime="2013-03-25T07:39:09+00:00" pubdate>Last Updated: 1 day ago </time>              
+               </div>
+            </header>
+            <div class="page-main">
+<p>All Naming Conventions Are <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a> and <a href="https://tools.ietf.org/html/rfc6919">RFC 6919</a> compliant.</p>
+<h3 id="metadata-conventions">Metadata Conventions</h3>
+The Validation Rule Name ***MUST*** try to explain in a concise manner what the validation rule prevents.
+  Note that conciseness trumps clarity for this field.
+<ol>
+ <li> The Validation Rule Name ***MUST*** try to explain in a concise manner what the validation rule prevents.
+  Note that conciseness trumps clarity for this field.</li>
+<li>All validation Rules <code>API</code> names <strong><em>MUST</em></strong> be written in <a href="https://en.wikipedia.org/wiki/PascalCase" target="_blank">PascalCase</a>.</li>
+<li>Validation Rules <strong><em>SHOULD NOT</em></strong> contain an underscore in the fields name, except where explicitely defined otherwise in these conventions.</li>
+<li>A Validation Rule <strong><em>SHALL</em></strong> always start by <code>VR</code>, followed by a shorthand name of the object, followed by a number corresponding to the number of validation rules on the triggering Object, followed by an underscore.</li>
+<li>The Validation Rule Error Message <strong><em>MUST</em></strong> contain an error code indicating the number of the Validation Rule, in the format <code>[VRXX]</code>, <code>XX</code> being the Validation Rule Number. <em>\\</em>1*</li>
+<li>Validation Rules <strong><em>MUST</em></strong> have a description, where the description details the Business Use Case that is adressed by the VR. A Description <strong><em>SHALL NOT</em></strong> contain technical desccriptions of what triggers the VR - the Validation Rule itself <strong><em>SHOULD</em></strong> be written in such a manner as to be clearly readable.</li>
+</ol>
+<h3 id="rule-conventions">Rule Conventions</h3>
+<ol>
+  <li>
+All Validation Rules MUST contain a Bypass Rule check.</li>
+<ul>
+<li>The simplest bypass is a custom field of type <code>Checkbox</code>, set on the <code>User</code> Sobject, which you can Name <code>Bypass Validation Rules</code>. To avoid having to check how the consultant set the bypass, we recommend the API name always be <code>IsBypassVR__c</code>.</li>
+<li>If more granularity is needed, a consultant <strong><em>MAY</em></strong> want to create a <code>Hierarchical Custom Setting</code> to implement the bypass.</li>
+<li>This bypass can be added to the more common User-based bypass, but <strong><em>SHOULD NOT</em></strong> supplant it.</li>
+</ul>
 
-          </div>
-          <div class="row knowledge-base-row">
-            <div class="span3">
-              <h2>
-                GDPR
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="icon-file"></i> <a href="https://blog.varonis.com/gdpr-requirements-list-in-plain-english/">GDPR in plain english</a></li>
-              </ul>
-            </div>
-          <div class="row knowledge-base-row">
-            <div class="span3">
-              <h2>
-                External Resources
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="fas fa-globe"></i> <a href="https://docs.google.com/presentation/d/1J4N6oZ0sKdHE70ymmqres1_TA008yesrhOZPSKQje_g">Salesforce DX Basic intro — Courtesy of Alex Brausewetter, CoFounder of BlueCanvas </a></li>
-                <li><i class="fas fa-globe"></i> <a href="https://help.salesforce.com/servlet/servlet.FileDownload?file=015300000035KkMAAU">Official Salesforce Customer For Life Scoping Questionnaire</a></li>
-                <li><i class="fas fa-globe"></i> <a href="content/SF_OrderOfExecution.pdf">Salesforce Order of Execution - by @Alexdot </a></li>
-                <li><i class="fas fa-globe"></i> <a href="https://developer.salesforce.com/page/Architect_Core_Resources">Official Salesforce Architect Resources</a></li>
-                <li><i class="fas fa-globe"></i> <a href="https://sites.google.com/view/flowunofficial">Flow Unofficial Resources by Alex Edelstein, including premade components and tutorials</a></li>
-              </ul>
-            </div>
+<li><p>Wherever possible, a Consultant <strong><em>SHOULD</em></strong> use operators over functions.</p></li>
+<li><p>All possible instances of <code>IF()</code> <strong><em>SHOULD</em></strong> be replaced by <code>CASE()</code></p></li>
+<li><p>Referencing other formula fields should be avoided at all cost. </p></li>
+<li><p>In all instances, <code>ISBLANK()</code> should be used instead of <code>ISNULL</code>, as per <a href="https://help.salesforce.com/apex/HTViewHelpDoc?id=customize_functions.htm&amp;language=en#ISBLANKDef">this link</a>.</p></li>
+<li><p>Validation Rules <strong><em>MUST NOT</em></strong> be triggered in a casquading manner. <em>\\</em>2*</p>
+<h3 id="examples">Examples</h3></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Formula</th>
+<th>Error Message</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VR01_OPP_CancelReason</td>
+<td><code>!$User.IsCanBypassVR__c &amp;&amp; <BR/>TEXT(Cancellationreason__c)="Other" &amp;&amp;<BR/>ISNULL(OtherCancellationReason__c)</code></td>
+<td>If you select "other" as a cancellation reason, you must fill out the details of that reason. [VR01]</td>
+<td>Prevents selecting "other" less reason without putting a comment in. [VR01]</td>
+</tr>
+<tr>
+<td>VR02_OPP_NoApprovalCantReserve</td>
+<td><code>!$User.IsCanBypassVR__c &amp;&amp; <BR/>!IsApproved__c &amp;&amp; <BR/>( ISPICKVAL(Status__c,"Approved - CC ") ||<BR/> ISPICKVAL(Status__c,"Approved - Client") ||<BR/> ISPICKVAL(Status__c,"Paid") )</code></td>
+<td>The status cannot advance further if it is not approved. [VR02]</td>
+<td>The status cannot advance further if it is not approved. [VR02]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+  <p><em>\</em>1 While including an error code in a user displayed message may be seen as strange, this will allow any admin or consultant to find exactly which validation rule is causing problems when user need only communicate the end code for debugging purposes.*
+  <em>\</em>2 Casquading Validation Rules are defined as VRs that trigger when another VR is triggered. Example: A field is mandatory if the status is Lost, but the field cannot contain less than 5 characters. Doing two validation rules which would trigger one another would result in a user first seeing that the fild is mandatory, then saving again, and being presented with the second error. In this case, the second error should be displayed as soon as the first criteria is met..*</p>
+</blockquote></div></div>
 
-
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </div><!-- /#content -->
+    </div><!-- /#wrap -->
+
+    <!-- FOOTER -->
     <footer>
+      <div class="main-footer">
+      </div>
       <!-- Sub footer -->
       <div class="sub-footer">
         <div class="container">
@@ -158,7 +180,6 @@
         </div>   
       </div>
     </footer>
-
     <!-- Javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -174,10 +195,10 @@
     <script src="assets/js/bootstrap-collapse.js"></script>
     <script src="assets/js/bootstrap-carousel.js"></script>
 
-    
     <script type="text/javascript" src="assets/js/jquery.autocomplete.js"></script>
     <script type="text/javascript" src="assets/js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="assets/js/application.js"></script>
+
     <script src="assets/js/holder/holder.js"></script>
 
   </body>
