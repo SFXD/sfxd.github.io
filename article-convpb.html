@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,6 +44,7 @@
 
     <!-- NAVBAR
     ================================================== -->
+
     <div class="banner navbar navbar-static-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
@@ -66,6 +66,7 @@
     </div><!-- /.navbar -->
 
 
+
     <!-- PAGE HEADER -->
     <div id="page-header-container">
       <div class="container">
@@ -78,65 +79,92 @@
         </div>
       </div>
     </div>
-
     <!-- PAGE CONTENT -->
     <div id="wrap" class="container" role="document">
       <div id="content" class="row">
-        <div id="main" class="knowledge-base span9" role="main">
-          <div class="row knowledge-base-row">
-            <div class="span3">
-              <h2>
-                Meta Stuff
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="fab fa-blogger"></i> <a href="article-feeds.html">Blogs list</a></li>
-                <li><i class="fas fa-book"></i> <a href="article-basic.html">Discord server basic info</a></li>
-              </ul>
-            </div>
-            <div class="span3">
-              <h2>
-                Salesforce things
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="fas fa-font"></i> <a href="article-summer18.html">Summer 18 Abridged</a></li>
-                <li><i class="fas fa-book"></i> <a href="article-convfields.html">Field Naming Conventions</a></li>                
-                <li><i class="fas fa-book"></i> <a href="article-convwf.html">Workflow Naming Conventions</a></li>                
-                <li><i class="fas fa-book"></i> <a href="article-convvr.html">Validation Rule Naming Conventions</a></li>                
-                <li><i class="fas fa-book"></i> <a href="article-convpb.html">Process Builder Naming Conventions</a></li>                
-              </ul>
-            </div>
+        <div id="main" class="single-post span12" role="main">
+          <article class="post type-post">
+            <header>
+              <h1 class="entry-title">Process Builder Naming Convention</h1>
+              <div class="post-meta">
+                 <time class="updated" datetime="2013-03-25T07:39:09+00:00" pubdate>Last Updated: 1 day ago </time>              
+               </div>
+            </header>
+            <div class="page-main">
+<p>All Naming Conventions Are <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a> and <a href="https://tools.ietf.org/html/rfc6919">RFC 6919</a> compliant.</p>
+<h4 id="general-conventions">General Conventions</h4>
+<ol>
+<li>If there are APEX triggers firing on an object, Process Builder <strong><em>SHOULD NOT</em></strong> be used. <em>\\</em>1*</li>
+<li>If Process Builders existed before building the APEX triggers, the Process Builders <strong><em>SHOULD</em></strong> be replaced by APEX triggers and classes.</li>
+<li>Process Builders <strong><em>REALLY SHOULD NOT</em></strong> fire on, update, or otherwise reference, Person Accounts.</li>
+<li>Process Builders <strong><em>REALLY SHOULD NOT</em></strong> perform complex operations on records that can be massively inserted/updated as a routine part of organization usage.</li>
+<li>Process Builders <strong><em>MUST NOT</em></strong> call a Flow if firing on an object that can be massively inserted/updated as a routine part of organization usage.</li>
+<li>Process Builders execution <strong><em>SHOULD</em></strong> be limited to the exact cases where they are needed. <em>\\</em>2*. In all cases, a consultant <strong><em>SHOULD</em></strong> limit the number of process builders executing on an object.</li>
+</ol>
+<h4 id="structural-conventions">Structural Conventions</h4>
+<ol>
+<li>Generally, a consultant <strong><em>SHOULD</em></strong> build Invocable Process Builders, and Invoke them from one single Process on the trigerring Object. This is by opposition to creating one process builder by task.</li>
+<li>Process Builders generally <strong><em>SHOULD NOT</em></strong> use the "no criteria" option of the Decision Diamonds.</li>
+<li>Whenever possible, multiple Process Builders on an object should be migrated to a single Process Builder, with different actions evaluated one after the other. </li>
+</ol>
+<h4 id="naming-conventions">Naming Conventions</h4>
+<ol>
+<li>A Process Builder <strong><em>SHALL</em></strong> always start by <code>PB</code>, followed by a number corresponding to the number of process builders in the Organization, followed by an underscore.</li>
+<li>A Process Builder<strong><em>SHOULD</em></strong> contain either <code>C</code>, <code>CE</code>, or <code>CES</code> wrapped by underscores, to show if the Workflow triggers on Creation, Creation and Edition, or Subsequent Modifications that Fill Criteria. The default assumed setting is <code>CE</code> if none is written. <em>\\</em>3*</li>
+<li>In case the Process Builder invokes other processes, the Process Builder name <strong>MUST</strong>contain <code>Inv</code> wrapped by underscore, and try to explain in a concise manner what triggers the PB.</li>
+<li>In case the Process Builder Carries out actions independently, the Process Builder name <strong>MUST</strong> try to explain in a concise manner what actions are carried out in the PB.</li>
+<li>AllProcess Builder Triggers MUST have a description detailing their purpose.</li>
+<li>A Process Builder Decision Diamond <strong><em>SHALL</em></strong> be named after the criteria that are used in the most precise manner possible.</li>
+<li>A Process Builder Action <strong><em>SHALL</em></strong> be named after the action being carried out in the most precise manner possible.</li>
+</ol>
+  <table>
+  <thead>
+  <tr>
+  <th>Type</th>
+  <th>Name</th>
+  <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Process Builder</td>
+  <td>PB01_CE_Inv_Opportunity</td>
+  <td>This Process Builder invokes all invocable Opportunity Process builders</td>
+  </tr>
+  <tr>
+  <td>Process Builder</td>
+  <td>PB01_UpdateOpportunityAcccount</td>
+  <td>Invocable. Sets the account based on defined rules via a Flow.</td>
+  </tr>
+  <tr>
+  <td>Decision Diamond</td>
+  <td>Status is "Approved"</td>
+  <td>#N/A</td>
+  </tr>
+  <tr>
+  <td>Action</td>
+  <td>Sets Contact Scoring to 10</td>
+  <td>#N/A</td>
+  </tr>
+  </tbody>
+  </table>
 
-          </div>
-          <div class="row knowledge-base-row">
-            <div class="span3">
-              <h2>
-                GDPR
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="icon-file"></i> <a href="https://blog.varonis.com/gdpr-requirements-list-in-plain-english/">GDPR in plain english</a></li>
-              </ul>
-            </div>
-          <div class="row knowledge-base-row">
-            <div class="span3">
-              <h2>
-                External Resources
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="fas fa-globe"></i> <a href="https://docs.google.com/presentation/d/1J4N6oZ0sKdHE70ymmqres1_TA008yesrhOZPSKQje_g">Salesforce DX Basic intro — Courtesy of Alex Brausewetter, CoFounder of BlueCanvas </a></li>
-                <li><i class="fas fa-globe"></i> <a href="https://help.salesforce.com/servlet/servlet.FileDownload?file=015300000035KkMAAU">Official Salesforce Customer For Life Scoping Questionnaire</a></li>
-                <li><i class="fas fa-globe"></i> <a href="content/SF_OrderOfExecution.pdf">Salesforce Order of Execution - by @Alexdot </a></li>
-                <li><i class="fas fa-globe"></i> <a href="https://developer.salesforce.com/page/Architect_Core_Resources">Official Salesforce Architect Resources</a></li>
-                <li><i class="fas fa-globe"></i> <a href="https://sites.google.com/view/flowunofficial">Flow Unofficial Resources by Alex Edelstein, including premade components and tutorials</a></li>
-              </ul>
-            </div>
 
+  <BR/><BR/>
+  <blockquote>
+  <p><em>\</em>1 This is a best practice, but it should be noted that for smaller organizations, triggers and process builders may coexist on the same objects..*
+  <em>\</em>2 Note that contrary to Workflows and Validation Rules, you cannot add a bypass to a Process Builders, as you cannot target User fields on decisions. As sucj, limiting the scope of execution of the process builder is paramount..*
+  <em>\</em>3 This is the default setting for Process Builders. To activate CES, one must click on "advanced" on the Decision diamond.*</p>
+</blockquote></div></div>
 
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </div><!-- /#content -->
+    </div><!-- /#wrap -->
+
+    <!-- FOOTER -->
     <footer>
+      <div class="main-footer">
+      </div>
       <!-- Sub footer -->
       <div class="sub-footer">
         <div class="container">
@@ -159,7 +187,6 @@
         </div>   
       </div>
     </footer>
-
     <!-- Javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -175,10 +202,10 @@
     <script src="assets/js/bootstrap-collapse.js"></script>
     <script src="assets/js/bootstrap-carousel.js"></script>
 
-    
     <script type="text/javascript" src="assets/js/jquery.autocomplete.js"></script>
     <script type="text/javascript" src="assets/js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="assets/js/application.js"></script>
+
     <script src="assets/js/holder/holder.js"></script>
 
   </body>
