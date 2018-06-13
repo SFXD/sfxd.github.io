@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,6 +44,7 @@
 
     <!-- NAVBAR
     ================================================== -->
+
     <div class="banner navbar navbar-static-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
@@ -66,6 +66,7 @@
     </div><!-- /.navbar -->
 
 
+
     <!-- PAGE HEADER -->
     <div id="page-header-container">
       <div class="container">
@@ -78,85 +79,51 @@
         </div>
       </div>
     </div>
-
     <!-- PAGE CONTENT -->
     <div id="wrap" class="container" role="document">
       <div id="content" class="row">
-        <div id="main" class="knowledge-base span10" role="main">
-          <div class="row knowledge-base-row">
-            <div class="span3">
-              <h2>
-                Meta Stuff
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="fab fa-blogger"></i> <a href="article-feeds.html">Blogs list</a></li>
-                <li><i class="fas fa-book"></i> <a href="article-basic.html">Discord server basic info</a></li>
-              </ul>
-            </div>
-            <div class="span3">
-              <h2>
-                Abridged RN
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="fas fa-font"></i> <a href="article-summer18.html">Summer 18 Abridged</a></li>
-                <li><i class="fas fa-font"></i> <a href="article-spring18.html">Spring 18 Abridged</a></li>                
-                <li><i class="fas fa-font"></i> <a href="article-winter18.html">Winter 18 Abridged</a></li>                
-              </ul>
-            </div>
-            <div class="span3">
-              <h2>
-  Conventions              </h2>
-              <ul class="category-posts">    
-                <li><i class="fas fa-book"></i> <a href="article-convfields.html">Field Naming Conventions</a></li>                
-                <li><i class="fas fa-book"></i> <a href="article-convwf.html">Workflow Naming Conventions</a></li>                
-                <li><i class="fas fa-book"></i> <a href="article-convvr.html">Validation Rule Naming Conventions</a></li>                
-                <li><i class="fas fa-book"></i> <a href="article-convpb.html">Process Builder Naming Conventions</a></li>                
-              </ul>
-            </div>            
+        <div id="main" class="single-post span12" role="main">
+          <article class="post type-post">
+            <header>
+              <h1 class="entry-title">Case Reference Link</h1>
+              <div class="post-meta">
+                 <time class="updated" datetime="2013-03-25T07:39:09+00:00" pubdate>Last Updated: 1 day ago </time>              
+               </div>
+            </header>
+            <div class="page-main">
+<p>## in email
+ <code>{!Case.Thread_Id}</code><br>
+​    </p>
+<h4 id="in-apexother">in apex/other</h4>
+<p>After Winter'16:
+Your org still has the broken ref ID, but we no longer parse them, because there is no expectation that we would, and the org ID is incorrect. And we no longer parse it due to a change on our end where we tightened the org ID requirement.</p>
+<p>For your reference you can look at below example on how reference it is generated - WE DON'T SUPPORT THE FORMULA BELOW AND FORMAT CAN CHANGE AT ANY TIME:</p>
+<p>Organization ID Format:
+00DXXYYYYYYYYYY</p>
+<p>Case ID Format:
+500AABBBBBBBBBB</p>
+<p>Acceptable Thread ID Formats:
+(1)
+ref:_00DXXyyyyyyyyyy._500AAbbbbbbbbbb:ref
+(2) ref:00DXyyyyyyyyyy.500Abbbbbbbbbb:ref</p>
+<p>For example (example org id):
+Organization ID = 00D50000000IQwR
+Case ID = 5005000000PQo5L</p>
+<p>Thread ID = ref:_00D50IQwR._50050PQo5L:ref</p>
+<p>Custom Formula:</p>
+<pre><code>"ref:_"&amp;LEFT( $Organization.ID,5)&amp;SUBSTITUTE(RIGHT($Organization.ID,10),"0","")&amp;"._"&amp;LEFT(Id,5)&amp;SUBSTITUTE(LEFT(RIGHT(Id,10),5),"0","")&amp;RIGHT(Id,5)&amp;":ref"</code></pre>
+<p>NOTE: An important disclaimer here is that any formula you use for this purpose could one day begin failing if the format of the Case ID or Thread/Reference ID changes.</p></div></div>
 
-          </div>
-          <div class="row knowledge-base-row">
-            <div class="span3">
-              <h2>
-                GDPR
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="fas fa-balance-scale"></i> <a href="https://blog.varonis.com/gdpr-requirements-list-in-plain-english/">GDPR in plain english</a></li>
-              </ul>
-            </div>
-            <div class="span3">
-              <h2>
-                Salesforce Stuff
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="fas fa-database"></i> <a href="article-datelit.html">Date Literals</a></li>
-                <li><i class="fas fa-database"></i> <a href="article-caseref.html">Case Reference Link</a></li>
+          </article>
 
-              </ul>
-            </div>
-                      <div class="row knowledge-base-row">
-</div>
-          <div class="row knowledge-base-row">
-            <div class="span10">
-              <h2>
-                External Resources
-              </h2>
-              <ul class="category-posts">    
-                <li><i class="fas fa-globe"></i> <a href="https://docs.google.com/presentation/d/1J4N6oZ0sKdHE70ymmqres1_TA008yesrhOZPSKQje_g">Salesforce DX Basic intro — Courtesy of Alex Brausewetter, CoFounder of BlueCanvas </a></li>
-                <li><i class="fas fa-globe"></i> <a href="https://help.salesforce.com/servlet/servlet.FileDownload?file=015300000035KkMAAU">Official Salesforce Customer For Life Scoping Questionnaire</a></li>
-                <li><i class="fas fa-globe"></i> <a href="content/SF_OrderOfExecution.pdf">Salesforce Order of Execution - by @Alexdot </a></li>
-                <li><i class="fas fa-globe"></i> <a href="https://developer.salesforce.com/page/Architect_Core_Resources">Official Salesforce Architect Resources</a></li>
-                <li><i class="fas fa-globe"></i> <a href="https://sites.google.com/view/flowunofficial">Flow Unofficial Resources by Alex Edelstein, including premade components and tutorials</a></li>
-              </ul>
-            </div>
-
-
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </div><!-- /#content -->
+    </div><!-- /#wrap -->
+
+    <!-- FOOTER -->
     <footer>
+      <div class="main-footer">
+      </div>
       <!-- Sub footer -->
       <div class="sub-footer">
         <div class="container">
@@ -179,7 +146,6 @@
         </div>   
       </div>
     </footer>
-
     <!-- Javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -195,10 +161,10 @@
     <script src="assets/js/bootstrap-collapse.js"></script>
     <script src="assets/js/bootstrap-carousel.js"></script>
 
-    
     <script type="text/javascript" src="assets/js/jquery.autocomplete.js"></script>
     <script type="text/javascript" src="assets/js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="assets/js/application.js"></script>
+
     <script src="assets/js/holder/holder.js"></script>
 
   </body>
