@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Salesforce Discord Community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+<link rel="apple-touch-icon" sizes="57x57" href="assets/ico/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/ico/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/ico/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/ico/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/ico/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/ico/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/ico/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/ico/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
+<link rel="manifest" href="assets/ico/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="assets/ico/manifest/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body>
+
+
+    <!-- NAVBAR
+    ================================================== -->
+
+    <div class="banner navbar navbar-static-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <a class="brand" href="index.html"><img src="assets/img/logo.png" width=70px></a>
+
+          <!-- Responsive Navbar -->
+          <div id="nav-main">
+            <ul id="menu" class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="wiki-index.html">Knowledge Base</a></li>
+              <li><a href="faq.html">Faq</a></li>
+              <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+            </ul>
+          </div><!--/.nav-collapse -->
+
+        </div> <!-- /.container -->
+      </div><!-- /.navbar-inner -->
+    </div><!-- /.navbar -->
+
+
+
+    <!-- PAGE HEADER -->
+    <div id="page-header-container">
+      <div class="container">
+        <div class="page-header row">
+          <div class="span8">
+            <h1>The Salesforce Exchange wiki</h1>
+            <p class="tagline">Literally one page</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- PAGE CONTENT -->
+    <div id="wrap" class="container" role="document">
+      <div id="content" class="row">
+        <div id="main" class="single-post span12" role="main">
+          <article class="post type-post">
+            <header>
+              <h1 class="entry-title">So you're going to prod</h1>
+              <div class="post-meta">
+                 <time class="updated" pubdate>Last Updated: Aug 2, 2018</time>              
+               </div>
+            </header>
+            <div class="page-main">
+              <hr />
+<pre><code>               *Windtastic Productions* PRESENT                                      
+                              ~~                                                      
+                 "SO YOU'RE GOING TO PROD"                    
+</code></pre>
+<p>You’re going to prod. This is the culmination of months of work. You’re happy, the client is expectant.<br>
+You’re going to deploy this to a live instance for all the users.</p>
+<p><strong>THAT’S GREAT.</strong></p>
+<p>Now let’s make sure we don’t nuke everything.</p>
+<p>Salesforce Change Sets and metadata deploy are non-reversible. What is done is done forever, and Salesforce has no backup. This is why we’re writing this today. You can’t just deploy Metadata for some users - it’s for everybody.</p>
+<p><strong>SHIT YOU DO BEFORE YOU DO ANYTHING ELSE</strong></p>
+<ul>
+<li>
+<p>Login to Prod. Is there already a config and data, even if it’s simple enough to be an amoeba sliding out from the ocean ?</p>
+<ul>
+<li>Nope<br>
+Wow, a Greenfield implementation! Nice. Skip this section.</li>
+<li>Yup.<br>
+You’re touching a system these people use to store live data and use processes.<br>
+Are you deploying stuff that changes existing objects, permissions or processes ?
+<ul>
+<li>Nope<br>
+You’re not completely out of the woods but you can skip “Regression testing” from this guide</li>
+<li>Yup.<br>
+So you have a major deployment that can, but is not limited to:<br>
+- break existing workflows<br>
+- delete existing data<br>
+- impact all users.<br>
+Great, welcome to our guide. You can’t skip anything, so go through everything. Congrats!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Get a full UTF-8 data export.</p>
+<ul>
+<li>You can do this by going to Setup &gt; Data Export and exporting EVERYTHING. This will take hours.</li>
+<li>MAKE SURE YOU CHANGE THE ENCODING. Salesforce has some dumb rule of not defaulting to UTF-8. YOU NEED UTF-8. This is Europe, not Texas. Accents and ḍîáꞓȑîȶîꞓs exist.<br>
+You can also do this by using Jitterbit to Query all the relevant tables, if you so prefer. Jitterbit is like Dataloader but better. If you don’t have it installed, install it now. IT IS FREE. It is great. If you tried doing a full data migration with Dataloader, you will not be helped. <a href="https://www.jitterbit.com/solutions/salesforce-integration/salesforce-data-loader/">https://www.jitterbit.com/solutions/salesforce-integration/salesforce-data-loader/</a></li>
+</ul>
+</li>
+<li>
+<p>Get a full metadata backup.</p>
+<ul>
+<li>First, go to prod and create a new Sandbox. Call it Backup010818 if it’s the first of August 2018. This will be your backup in case you fucked something up.</li>
+<li>If you have the technical capacity for it, download an IDE with a Salesforce plugin (IntelliJ community edition is free, and the plugin Jetforcer is free for 90 days, for example). Download the entire metadata. Yes, everything. Now that you’ve done that, use Git to start a new repo and commit everything. You can Use Gitkraken (<a href="https://www.gitkraken.com/">https://www.gitkraken.com/</a>) for that if you’re new to git and just need to store it. Git will allow you to “save” changes but also revert anything you do. Great for panic rollbacks.</li>
+</ul>
+</li>
+<li>
+<p>Make Sure that your Change Sets contain everything, and that you have logged any pre- or post-install steps on the Change Set description. If you’re deploying Service Cloud, this means your Change Set description contains:<br>
+"Before deploy, activate Person Accounts<br>
+Run tests ContactTest, AccountTest, Object__cTest when deploying<br>
+After deploy, activate Process Builders PB1, PB3, PB24<br>
+After deploy, send out test email to <a href="mailto:xxxx@mytest.com">xxxx@mytest.com</a> to validate routing.   "</p>
+</li>
+<li>
+<p>If you’re deploying to a “mature” org that has existing processes</p>
+<ul>
+<li>You have gained the right to do a fake deployment before. They are mature, so they already use a Partial sandbox.<br>
+First, make sure it’s refreshed recently, or that they can refresh it. DO NOT DO THAT YOURSELF. Ask them if you can.</li>
+<li>You deploy stuff from your DEV sandbox to the new partial one. Once it’s deployed, uyou test everything with the client’s help ( alot of testing is on their side ).<br>
+ANY MODIFICATION IS DONE IN YOUR DEV SANDBOX AND THEN DEPLOYED TO UAT.<br>
+This allows you to have a final Change Set from prod.<br>
+The client MUST approve that everything is fine after deployment to UAT, including tests from their side to ensure there are no regressions.</li>
+</ul>
+</li>
+<li>
+<p>If there’s Batch Apex involved ALWAYS TEST SHIT IN PARTIAL.</p>
+</li>
+</ul>
+<p>Do you have backups of absolutely fucking everything? Yes? GREAT.</p>
+<p><strong>GETTING READY TO DEPLOY</strong></p>
+<p>You’ve got backups of absolutely fucking everything.<br>
+Your Change Sets have been built and you have them uploaded.</p>
+<p>First thing you do is validate them to make sure validations pass.<br>
+Tests don’t work ? Stuff is missing ? Back to dev sandbox to fix it.</p>
+<p>Second thing you do is estimate how long all pre- and post-install steps will take.<br>
+IF you’re on a mature org or are impacting existing processes, this is the time window in which you will freeze all users to ensure data consistency. You will need to warn the client about this. This time needs to be short.</p>
+<p>Being ready to deploy means that you can confidently deploy all Change Sets and do any post-install steps required as fast as possible. Meaning shit is Validated and ready to go. Note that in some cases you can’t validate Change Sets because features are missing. If go live timeframe is important, DEPLOY TO PARTIAL FIRST to give yourself a sense of how long this takes and check your Change Sets.</p>
+<p>If any pre-install steps do not impact users, warn the client and carry them out now. (e.g. New feature activation that requires support involvement but is invisible to users before setup).</p>
+<p><strong>DEPLOY</strong></p>
+<p>You have a set hour and date on which to deploy.<br>
+The client is warned and ready.<br>
+Change Sets are ALREADY validated.</p>
+<ul>
+<li>Set Deliverability to “None”. You ain’t sending emails without testing.</li>
+<li>You freeze all necessary users.</li>
+<li>If you have that, activate the validation rule bypass on the admin user. No use fighting against that.</li>
+<li>You carry out all pre-install steps that you could not do before.</li>
+<li>You Deploy all Change Sets</li>
+<li>You carry out all post-install steps.<br>
+All of this is written on your Change Set description, so you have no surprises (hopefully).</li>
+<li>If workflows or process builders are preventing deployment, and you deactivate them, NOTE ALL OF THEM DOWN SOMEWHERE.</li>
+<li>Fix any bugs that pop up due to the client not keeping their prod in sync with their sandboxes.</li>
+</ul>
+<p><strong>POST-DEPLOY</strong></p>
+<ul>
+<li>Make sure everything looks fine, that you carried everything over.</li>
+<li>Deactivate the validation rule bypass.</li>
+<li>Go over each page, create a record and immediately delete it, etc.</li>
+<li>Warn their PM that deployement is done and request testing from their side.</li>
+<li>If you deactivated Workflows or PBs or somthing so the deployment passes, ACTIVATE THEM BACK AGAIN.</li>
+</ul>
+<p>IF You deployed a BATCH APEX:</p>
+<ul>
+<li>DO NOT SCHEDULE THAT THING.</li>
+<li>Test it with a query that only affects some records.</li>
+<li>Make sure everything is still fine.</li>
+<li>Then schedule it.</li>
+</ul>
+<p><strong>REGRESSION TESTING</strong><br>
+You deployed to a live org.<br>
+With their PM and staff helping you, carry out day to day tasks from their users on selected records. Make sure there are no adverse effects that were not identified in sandbox.<br>
+Set Email deliverability back to “full”. Test emails with their staff. CAREFULLY.</p>
+<p>Stay on alert for the next few days if critical stuff happens.</p>
+<p><strong>REACTIVATION</strong><br>
+Notify PM all is well<br>
+Unfreeze users<br>
+go drink champagne.</p>
+<p><strong>REVERTING CHANGES</strong></p>
+<ul>
+<li>
+<p>Data is affected<br>
+You have a backup. Don’t panic.<br>
+Identify WTF is causing data to be wrong.<br>
+Fix that.<br>
+Get your backup, restore data to where it was before the fuckup.</p>
+</li>
+<li>
+<p>Metadata is affected<br>
+You have a backup. Don’t panic.<br>
+Identify what was changed that shouldn’t be (probably page layouts, clients never keep those up to date)<br>
+Revert from your backup sandbox<br>
+Add any missing elements from your deployment.</p>
+</li>
+</ul>
+
+
+          </article>
+
+        </div>
+      </div><!-- /#content -->
+    </div><!-- /#wrap -->
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="main-footer">
+      </div>
+      <!-- Sub footer -->
+      <div class="sub-footer">
+        <div class="container">
+          <div id="social-icons">
+            <ul>
+              <li class="social-icon discord">
+                <a class="fade-img" href="http://discord.gg" target="_blank" rel="tooltip" title="Discord">
+                  <img src="assets/img/social/icons_discord.png" alt="Discord" />
+                </a>
+              </li>
+              <li class="social-icon salesforce">
+                <a class="fade-img" href="http://www.salesforce.com" target="_blank" rel="tooltip" title="Salesforce">
+                  <img src="assets/img/social/icons_salesforce.png" alt="Salesforce" />
+                </a>
+              </li>
+            </ul>
+          </div> 
+          <div class="copyright-text">Copyright 2018. Powered by <a href='http://github.io/'>GitHub</a>
+          </div>  
+        </div>   
+      </div>
+    </footer>
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="assets/js/application.js"></script>
+
+    <script src="assets/js/holder/holder.js"></script>
+
+  </body>
+</html>

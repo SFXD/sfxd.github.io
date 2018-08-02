@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Salesforce Discord Community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+<link rel="apple-touch-icon" sizes="57x57" href="assets/ico/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="assets/ico/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="assets/ico/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="assets/ico/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="assets/ico/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="assets/ico/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="assets/ico/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/ico/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
+<link rel="manifest" href="assets/ico/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="assets/ico/manifest/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body>
+
+
+    <!-- NAVBAR
+    ================================================== -->
+
+    <div class="banner navbar navbar-static-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <a class="brand" href="index.html"><img src="assets/img/logo.png" width=70px></a>
+
+          <!-- Responsive Navbar -->
+          <div id="nav-main">
+            <ul id="menu" class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="wiki-index.html">Knowledge Base</a></li>
+              <li><a href="faq.html">Faq</a></li>
+              <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+            </ul>
+          </div><!--/.nav-collapse -->
+
+        </div> <!-- /.container -->
+      </div><!-- /.navbar-inner -->
+    </div><!-- /.navbar -->
+
+
+
+    <!-- PAGE HEADER -->
+    <div id="page-header-container">
+      <div class="container">
+        <div class="page-header row">
+          <div class="span8">
+            <h1>The Salesforce Exchange wiki</h1>
+            <p class="tagline">Literally one page</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- PAGE CONTENT -->
+    <div id="wrap" class="container" role="document">
+      <div id="content" class="row">
+        <div id="main" class="single-post span12" role="main">
+          <article class="post type-post">
+            <header>
+              <h1 class="entry-title">So you're changing data in prod</h1>
+              <div class="post-meta">
+                 <time class="updated" pubdate>Last Updated: Aug 2, 2018</time>              
+               </div>
+            </header>
+            <div class="page-main">
+              <hr /><pre><code>               *Gefftastic Productions* PRESENT                                      
+                              ~~                                                      
+                "YOU WANNA CHANGE DATA IN PROD"                    
+</code></pre>
+<p>This is it.<br>
+You have data from five organizations and twenty tables to merge.<br>
+You’re going to have to map data from various sources into Salesforce.<strong>IT’S THAT BIG MIGRATION TIME.</strong></p>
+<p>Well let’s make sure you dont have to do it again in two days because data is missing, or delete production data.</p>
+<p>Salesforce does not back up your data.<br>
+If you delete your data, and the amount deleted is bigger than what is in the recycle bin, if will be deleted forever. You could try restoring it via Workbench, praying that the automated Salesforce jobs haven’t wiped your data yet.<br>
+If you update data, the moment the update hits the database (the DML) is done, the old data is lost. Forever.<br>
+You could try seing if you turned on field history.</p>
+<p>If worst comes to worst you can pay 10 000€ (not joking) to Salesforce to restore your data. <a href="https://help.salesforce.com/articleView?id=000003594&amp;type=1">https://help.salesforce.com/articleView?id=000003594&amp;type=1</a></p>
+<p>But let’s try to avoid these situations.<br>
+These steps apply to any massive data load, but especially in case of deletions.</p>
+<p><strong>GENERAL DATA OPERATIONS STUFF</strong></p>
+<ul>
+<li>
+<p>Tools<br>
+You are using Jitterbit because it is a real data loading tool unlike dataloader.<br>
+Jitterbit is like Dataloader but better. If you don’t have it installed, install it now. IT IS FREE. It is great. If you tried doing a full data migration with Dataloader, you will not be helped. <a href="https://www.jitterbit.com/solutions/salesforce-integration/salesforce-data-loader/">https://www.jitterbit.com/solutions/salesforce-integration/salesforce-data-loader/</a></p>
+</li>
+<li>
+<p>Volume<br>
+If you are loading a big amount of data or the org is mature, read this document entirely before doing anything.<br>
+<a href="https://resources.docs.salesforce.com/sfdc/pdf/salesforce_large_data_volumes_bp.pdf">https://resources.docs.salesforce.com/sfdc/pdf/salesforce_large_data_volumes_bp.pdf</a></p>
+</li>
+<li>
+<p>Deletions<br>
+Apart from the “GENERAL DATA OPERATIONS STUFF” section, read this all.<br>
+If you delete data in prod without a backup, this is bad.<br>
+If the data backup was not checked, this is bad.<br>
+If you did not check automations before deleting, this is also bad.<br>
+Read the other sections.</p>
+</li>
+<li>
+<p>Data Mapping<br>
+Don’t map the data yourself.<br>
+ANY data mapping you do is with someone from the client’s who can understand WTF you’re saying.<br>
+If no one like this is available, you spend time with a business operative so you can do the mapping and make them sign off on it.<br>
+The client SIGNS OFF on the mapping.<br>
+There is no glory in doing a load, realizing you fucked up a map, and starting again.<br>
+That said, basic operations are as follow:</p>
+<ul>
+<li>study Source and target data model</li>
+<li>establish mapping from table to table, field to field, or both if necessary.</li>
+<li>for each table and field, establish Source of Truth, meaning which data should take priority if conflicts exist</li>
+<li>establish an ExternalId from all systems to ensure data mapping is correct</li>
+<li>define which users can see what data. Update permissions if needed.</li>
+</ul>
+</li>
+<li>
+<p>Data retrieval</p>
+<ul>
+<li>Data needs to be extracted from source system. This can be via API, an ETL, a simple CSV extract, etc.</li>
+<li>Verify Data Format
+<ul>
+<li>Date format yyyy-mm-dd</li>
+<li>DateTime format yyyy-mm-ddT00:00:00z</li>
+<li>Emails not longer than 80 char</li>
+<li>Text containing carriage returns is qualified by "</li>
+<li>Other field-specific verifications re. length and separators for text, numbers, etc.</li>
+</ul>
+</li>
+<li>Verify Table integrity
+<ul>
+<li>Check that all tables have basic data for records:
+<ul>
+<li>LastName, Account for Contact</li>
+<li>Name for Account</li>
+<li>Any other system mandatory fields</li>
+</ul>
+</li>
+<li>Check that all records have the agreed-upon external Ids</li>
+</ul>
+</li>
+<li>Verify Parsing
+<ul>
+<li>Do a dummy load to ensure that the full data extracted can be mapped and parsed by the selected automation tool</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Data Matching<br>
+You should already have created External Ids on every table, if you are upserting data.<br>
+If not, do so now.<br>
+DO NOT match the data in excel.<br>
+Yes, INDEX(MATCH()) is a beautiful tool. No, no one wants you to spend hours doing that when you could be doing other stuff, like drinking a cold beer.<br>
+Store IDs of the external system in the target tables, in the ExternalId field. Then use that when recreating lookup relationships to find the records.<br>
+This saves time, avoids you doing a wrong matching, and best of all, if the source data changes, you can just run the data load operation again on the new file, without spending hours matching IDs.</p>
+</li>
+</ul>
+<p><strong>SHIT YOU DO BEFORE YOU DO ANYTHING ELSE</strong></p>
+<ul>
+<li>
+<p>Login to Prod. Is there a weekly backup running, encoded as UTF-8, in Setup &gt; Data Export ?</p>
+<ul>
+<li>Nope<br>
+Select encoding UTF-8 and click “Export Now”. This will take hours.<br>
+Turn that weekly stuff on.<br>
+Make sure the client KNOWS it’s on.<br>
+Make sure they have a strategy for downloading the ZIP file that is generated by the extract weekly.</li>
+<li>Yup.<br>
+Is it UTF-8 and has run in the last 48 hours ?
+<ul>
+<li>Yup<br>
+Confer with the client to see if additional backup files are needed.</li>
+<li>Nope.<br>
+If the export isn’t UTF-8, it’s worthless.<br>
+If it’s more than 48h old, confer with the client to see if additional backup files are needed. In all cases, you should consider doing a new, manual export.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>SERIOUSLY MAKE SURE YOU CHANGE THE ENCODING. Salesforce has some dumb rule of not defaulting to UTF-8. YOU NEED UTF-8. This is Europe, not Texas. Accents and ḍîáꞓȑîȶîꞓs exist.</p>
+</li>
+<li>
+<p>If Data Export is not an option because it has run too recently, or because the encoding was wrong, you can also do your export by using Jitterbit to Query all the relevant tables.</p>
+<ul>
+<li>In Jitterbit also, remember to select “Write File as UTF-8” when prompted.</li>
+</ul>
+</li>
+<li>
+<p>CHECK THE CODE AND AUTOMATION IN THE ORG.</p>
+<ul>
+<li>Seriously, look over all triggers that can fire when you upload the data.<br>
+You don’t want to be that consultant that sent a notification email to 50000 people.<br>
+Just check the triggers and see what they do.<br>
+If you can’t read triggers, ask a dev to help you.</li>
+<li>Yes, Check the Workflows and Process Builders too. They can send Emails as well</li>
+<li>Check Process Builders again. Are there a lot that are firing on an object you are loading ? Make note of that for later, you may have to deactivate them.</li>
+</ul>
+</li>
+<li>
+<p>Check data volume.</p>
+<ul>
+<li>Is there enough space in the org to accomodate the extra data ? (this should be pre-project checks, but check it again)</li>
+<li>Are volumes to load enough to cause problems API-call wise ? If so, you may need to consider using the BULK jobs instead of normal operations</li>
+<li>In case data volumes are REALLY big, you will need to abide by LDV (large data volume) best practices, including not doing upserts, defering sharing calculations, and grouping records by Parent record and owner before uploading. Full list of these is available here: <a href="https://resources.docs.salesforce.com/sfdc/pdf/salesforce_large_data_volumes_bp.pdf">https://resources.docs.salesforce.com/sfdc/pdf/salesforce_large_data_volumes_bp.pdf</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>PREPARING THE JOBS</strong><br>
+Before creating a job, ask yourself which job type is best.<br>
+Upsert is great but is very resource intensive.<br>
+Maybe think about using the BULK Api.<br>
+In all cases, study what operation you do and make sure it is the right one.<br>
+Once that is done…</p>
+<p>You are able to create insert, upsert, query and deletion jobs, and change select parts of it. That’s because you are using a real data loading tool.<br>
+This is important because this means you can:</p>
+<ul>
+<li>
+<p>Create a new Sandbox</p>
+</li>
+<li>
+<p>In Jitterbit, create a new Folder for each operation type you will do. Name it “mydatauploadname 20180805” for example. You will put your jobs in there for easier archival.</p>
+</li>
+<li>
+<p>Prepare each job. Rename them from the default ‘Account Insert’ to  1 - Account upsert, 2 - Contact upsert, etc.<br>
+In the end, you will have 1 through X of jobs you need to run sequentially, then additional numbers that are added to finalize any rejects from those loads if needed.</p>
+</li>
+<li>
+<p>Do a dummy load in sandbox. Make sure to set the start line to something near the end so you don’t clog the sandbox up with all the data.</p>
+</li>
+<li>
+<p>Make sure everything looks fine.</p>
+<p>If something fails, you correct the TRANSFORMATION, not the file, except in cases where it would be prohibitively long to do so. Meaning if you have to redo the load, you can run the same scripts you did before to have a nice CSV to upload.</p>
+</li>
+</ul>
+<p><strong>GETTING READY TO DO THAT DATA OPERATION</strong></p>
+<p>You’ve got backups of every single table in the Production org.<br>
+Even if you KNOW you do, you open the backups and check they are not corrupt or unreadable. Untested backups are no backups.<br>
+You know what all automations are going to do if you leave them on.<br>
+You talked with the client about possible impacts, and the client is ready to check the data after you finish your operations.</p>
+<p>You set up, with the client, a timeframe in which to do the data operation.<br>
+If the data operation impacts tables that users work on normally, you freeze all those users during that timeframe.</p>
+<p>Remember to deactivate any PB, WF, APEX that can impact the migration. You didn’t study them just to forget them.<br>
+If this is an LDV job, take into account any considerations listed in “GENERAL DATA OPERATIONS STUFF” and in “SHIT YOU DO BEFORE YOU DO ANYTHING ELSE”</p>
+<p><strong>DATA OPERATION</strong></p>
+<ul>
+<li>
+<p>Go to Jitterbit and edit the Sandbox jobs.</p>
+</li>
+<li>
+<p>Edit the job Login to point to production.</p>
+</li>
+<li>
+<p>Save all the jobs.</p>
+<p>You run, in order, the jobs you prepared.</p>
+<p>When the number of failures is low enough, study the failure files, take any corrective action necessary, then use those files as a new source for a new data load operation.<br>
+Continue this loop until the number of rejects is tolerable.<br>
+This will ensure that if some reason you need to redo the entire operation, you can take the same steps in a much easier fashion.<br>
+Once you are done, take the failure files, study them, and prepare a recap email detailing failures and why they failed. It’s their data, they have a right to know.</p>
+</li>
+</ul>
+<p><strong>POST-MIGRATION</strong></p>
+<ul>
+<li>Make sure everything looks fine, that you carried everything over.</li>
+<li>Warn their PM that the migration is done and request testing from their side.</li>
+<li>If you deactivated Workflows or PBs or somthing so the migration passes, ACTIVATE THEM BACK AGAIN.</li>
+<li>Unfreeze users if needed.</li>
+<li>Go drink champagne.</li>
+</ul>
+<p><strong>REVERTING CHANGES</strong></p>
+<p>You have a backup. Don’t panic.<br>
+Identify WTF is causing data to be wrong.<br>
+Fix that.<br>
+Get your backup, restore data to where it was before the fuckup. Ideally, only restore affected fields. If needed, restore everything.<br>
+Redo the data load if needed.</p>
+
+
+          </article>
+
+        </div>
+      </div><!-- /#content -->
+    </div><!-- /#wrap -->
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="main-footer">
+      </div>
+      <!-- Sub footer -->
+      <div class="sub-footer">
+        <div class="container">
+          <div id="social-icons">
+            <ul>
+              <li class="social-icon discord">
+                <a class="fade-img" href="http://discord.gg" target="_blank" rel="tooltip" title="Discord">
+                  <img src="assets/img/social/icons_discord.png" alt="Discord" />
+                </a>
+              </li>
+              <li class="social-icon salesforce">
+                <a class="fade-img" href="http://www.salesforce.com" target="_blank" rel="tooltip" title="Salesforce">
+                  <img src="assets/img/social/icons_salesforce.png" alt="Salesforce" />
+                </a>
+              </li>
+            </ul>
+          </div> 
+          <div class="copyright-text">Copyright 2018. Powered by <a href='http://github.io/'>GitHub</a>
+          </div>  
+        </div>   
+      </div>
+    </footer>
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="assets/js/application.js"></script>
+
+    <script src="assets/js/holder/holder.js"></script>
+
+  </body>
+</html>
