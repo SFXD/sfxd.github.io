@@ -104,7 +104,7 @@
 <br/>
   If you wish to replace permissions accross all custom objects for example, simply replace <code>YOUROBJECTNAMEHERE</code> by <code>.*__c</code></p>
 <h4> Find:</h4>
-<code> (<fieldPermissions>\s*<editable>).*(</editable>\s*<field>YOUROBJECTNAMEHERE.*__c</field>\s*<readable>).*(</readable>\s*</fieldPermissions>)</code>
+<code> %28%3CfieldPermissions%3E%5Cs%2A%3Ceditable%3E%29.%2A%28%3C%2Feditable%3E%5Cs%2A%3Cfield%3EYOUROBJECTNAMEHERE.%2A__c%3C%2Ffield%3E%5Cs%2A%3Creadable%3E%29.%2A%28%3C%2Freadable%3E%5Cs%2A%3C%2FfieldPermissions%3E%29</code>
 <h4> Replace:</h4>
 <code>$1TRUE$2TRUE$3</code>
 
