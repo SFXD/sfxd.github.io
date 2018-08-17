@@ -1,16 +1,16 @@
-# Contributing to the Salesforce Exchange
+# Contributing to the SFXD
 
 First of all, thanks for wanting to contribute!
 Second, there are two main projects at the moment:
 
-- [This website](#salesforce-exchange-website)
-- [All other projects in the Salesforce-Exchange Organization](#other-projects)
+- [This website](#SFXD-website)
+- [All other projects in the SFXD Organization](#other-projects)
 
 These do not respect the same principles regarding contribution, so please take the time to read through these (very short) guidelines :)
 
 
-## Salesforce Exchange Website
-[salesforce-exchange-website]: #salesforce-exchange-website
+## SFXD Website
+[SFXD-website
 
 ### Adding Pages
 

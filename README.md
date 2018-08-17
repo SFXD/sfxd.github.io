@@ -1,8 +1,8 @@
-# Salesforce-Exchange.github.io
-The main wiki for Salesforce Exchange
+# SFXD.github.io
+The main wiki for SFXD
 
 [![Discord](https://img.shields.io/badge/Discord-Open-7289DA.svg)](https://discordapp.com/invite/JG4Bc4q)
-[![Website](https://img.shields.io/badge/Website-online-brightgreen.svg)](https://salesforce-exchange.github.io/)
+[![Website](https://img.shields.io/badge/Website-online-brightgreen.svg)](https://SFXD.github.io/)
 [![Memes](https://img.shields.io/badge/Memes-failing-red.svg)](#)
 
 
