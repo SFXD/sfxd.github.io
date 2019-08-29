@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Salesforce Discord Community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/../assets/ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/../assets/ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/../assets/ico/favicon-16x16.png">
+<link rel="manifest" href="/../assets/ico/site.webmanifest">
+<link rel="mask-icon" href="/../assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/../assets/ico/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/../assets/ico/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body>
+
+
+    <!-- NAVBAR
+    ================================================== -->
+
+    <div class="banner navbar navbar-static-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <a class="brand" href="../index.html"><img src="../assets/img/logo.png" width=70px></a>
+
+          <!-- Responsive Navbar -->
+          <div id="nav-main">
+            <ul id="menu" class="nav">
+              <li><a href="../index.html">Home</a></li>
+              <li class="active"><a href="../wiki-index.html">Knowledge Base</a></li>
+              <li><a href="faq.html">Faq</a></li>
+              <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+            </ul>
+          </div><!--/.nav-collapse -->
+
+        </div> <!-- /.container -->
+      </div><!-- /.navbar-inner -->
+    </div><!-- /.navbar -->
+
+
+
+    <!-- PAGE HEADER -->
+    <div id="page-header-container">
+      <div class="container">
+        <div class="page-header row">
+          <div class="span8">
+            <h1>The SFXD wiki</h1>
+            <p class="tagline">Literally one page</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- PAGE CONTENT -->
+    <div id="wrap" class="container" role="document">
+      <div id="content" class="row">
+        <div id="main" class="single-post span12" role="main">
+          <article class="post type-post">
+            <header>
+              <h1 class="entry-title">Summer '19 Abridged</h1>
+              <div class="post-meta">
+                 <time class="updated" pubdate>Last Updated: May 16, 2019</time>              
+               </div>
+            </header>
+
+            <div class="page-main">
+<hr>
+<p>The Salesforce Discord Collective Presents:<br>
+<strong>THE SUMMER 19 RELEASE NOTES - <a href="https://media.discordapp.net/attachments/348054624256786434/575698639305965588/30gb78.jpg">ABRIDGED</a></strong><br>
+We don’t use cookies to track you, but we like chocolate ones</p>
+<hr>
+<p>As said last time, we stopped separating LEX into a different section.</p>
+<p><strong>CRITICAL STUFF</strong></p>
+<ul>
+<li>Quick reminder that <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_cruc_lex_turned_on.htm">Salesforce will turn on LEX for all normal profiles in Winter 20</a>. To quote ourselves, if you’re following best practices and not using standard profiles, this won’t affect you. And if you’re not following best practices, well now you have a reason to start =D</li>
+<li>A Critical Update will <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_networks_CRUC_api_enabled.htm">disable API permission on external users</a> on ALL external profiles, INCLUDING CLONED. Check your communities. For cloned profiles, the permission just needs to be rechecked after activation. For standard profiles, seriously, just clone the darn profile.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_forcecom_flow_cruc_security.htm">Permission handling for Apex Class callouts from Processes and Flows is changing</a> and your invocables may fail if you don’t update them before the critical update gets activated. Check it.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_lwc_lo.htm">Lightning Web Components available through Lightning Out</a></li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_other_changes_customizable_forecasting_retirement.htm">Customizable Forecasting is being retired</a></li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_einstein_global_models.htm">Anonymous data collection from all einstein users allow better modelling and predictions</a>… Well, better see what they collect and whether this exposes you to liabilities…</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_bi_dashboards_classic_designer_retire.htm">Analytics Classic Designer (Wave 1.0) is being sunset</a>, make sure to start converting your dashboards to Wave 2.0 before Winter '19 or forever lose access to them. Too bad the Dashboard Conversion funtionality suuuuuuuuuuuucks.</li>
+</ul>
+<p><strong>OOOH, SHINY!</strong></p>
+<ul>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_forcecom_flow_notificationbuilder.htm">You can create Custom Notifications</a>. And trigger them via Process Builder. We still hate process builder but that’s rather cool.</li>
+<li>In the same vein, you can <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_lex_prompts.htm">create custom Prompts in Lightning Experience</a>. Look for “In-app Guidance”. Also, note that this adds permissions to all profiles. If you had weird errors deploying profiles between api-version-mistmatched orgs, well, that’s why.</li>
+<li>You can define <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_forcecom_flow_data_integration.htm">Data Types in APEX so they’re used in Flows.</a> Read the page for more information, it’s tough to explain better than they did.</li>
+<li>Salesforce… <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_networks_cms_newstuff.htm">Released a CMS</a> for communities, after integrating with others. Whether that’s good or bad is up for discussion I guess.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_lc_continuations.htm">Continuations now available in LEX</a>. Great when you have long-running calls and to optimize the number of queries.</li>
+</ul>
+<p><strong>GENERAL STUFF</strong></p>
+<ul>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_lex_on_ipad.htm">Lightning on iPads</a>. Doesn’t look like much but that means a lot more managers will be happy. Is beta, requires activation.</li>
+<li>“Live Agent” is renamed to “Chat”. No link because that’s all they say on that page. If you’re french “Chat” is “Cat”. /r/uninterestingfacts</li>
+<li>They seem to be pushing <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_general_salesforce_surveys.htm">Surveys</a> still with a new free tier and some quality of life updates.</li>
+<li>FSL gets a nice update regarding <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_field_service_timesheet_templates.htm">Time Sheet Templates</a> and better <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_field_service_enhanced_optimization.htm">optimization</a></li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_lex_enhanced_related_lists.htm">Related Lists in LEX suck less now with text wrapping and up to ten colums !</a>. Beta feature.</li>
+<li>Speaking of <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_lex_related_list_quick_filters.htm">Related Lists</a> you can now filter them without creating new views and stuff.</li>
+<li>High Velocity Sales got <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_hvs_sales_cadences_chain.htm">a</a> <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_hvs_welcome_resources.htm">few</a> upgrades, the best of which IMHO is <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_hvs_open_cti.htm">Open CTI in HVS</a></li>
+<li>You can reference <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_forcecom_field_formula_einstein_prediction.htm">Einstein AI fields in Formulas</a>.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_productivity_eac_activity_metrics_ga.htm">Activity Capture now has Activity Metrics</a> fields in GA, so you can more easily see concantenated info about activities in Salesforce and activities via Einstein</li>
+</ul>
+<p><strong>EMAILS</strong></p>
+<ul>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_productivity_email_images.htm">You can add images in your emails now</a> so you can add cat gifs to your support closure notifications.</li>
+<li>Salesforce now allows you to <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_productivity_email_set_default_click.htm">open your own mail client</a> when clicking “email” on a record. Personal setup, not admin one.</li>
+<li>Speaking of mails, <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_cases_files_rl.htm">Files attached to mails now also appear in the Case Files related list</a>. Agents everywhere rejoice.</li>
+<li>While we’re at it <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_outlook_integration_send_later_and_log.htm">Emails can be scheduled to send later via Outlook</a> and you can <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_productivity_email_read-only_recipients.htm">mark Email Adress fields as read-only in the email action</a> oh and you can add links to <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_knowledge_insert_url.htm">knowledge</a> in them too. So, yeah, Email updates.</li>
+</ul>
+<p><strong>SERVICE CLOUD</strong></p>
+<ul>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_omnichannel_attribute_based_routing.htm">Skill-Based Routing</a> for omnichannel without code. Is Beta, but still, <em>NICE</em>. Combined with <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_omnichannel_invocable_action_in_flow.htm">Flows being able to call skill-based routing</a> this is great news for small-to-medium-sized businesses.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_cases_merge.htm">You can Merge cases now</a>. You know it’s spagetti code when using the same UI and functionnality but on a different type of record requires so much rewrite it takes litteral years to develop.</li>
+<li>Oh and <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_field_service_case_milestones_lex.htm">Case Milestones</a> now in LEX as well.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_productivity_macros_conditional.htm">Macros support IF statements</a>. This changes how you can use them, like, a lot. Any Service Cloud org should look into this.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_einstein_service.htm">Einstein Bots got some quality of life upgrades</a> including a <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_service_bots_map.htm">map visualisation</a> of conversations, the capabitilty to have <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_service_bots_profiles.htm">custom profiles</a> to access more resources and APEX classes, etc.</li>
+</ul>
+<p><strong>PROCESSES, FLOWS, ETC</strong></p>
+<ul>
+<li>The new Flow Builder has gotten a few updates ! Which brings it to parity with the old Flow Builder <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_forcecom_flow_build.htm?edition=&amp;impact=">regarding undo, copy, paste</a> and <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_forcecom_flow_rich_text.htm">rich text</a> (though that doesn’t support HTML). Anyway dis all great because the <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_forcecom_other_eol_cfd.htm">old Flow Designer</a> getting retired next release.</li>
+<li>Remember those “templates” that did nothing last release ? <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_forcecom_flow_create.htm">They do stuff now</a>.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_forcecom_development_custom_metadata_process_builder.htm">You can reference Custom Metadata Types in Process Builders</a></li>
+<li>Salesforce REALLY updated their help page for Flow Considerations. <a href="https://help.salesforce.com/articleView?id=flow_considerations.htm&amp;language=en_US">Worth a read</a></li>
+</ul>
+<p><strong>COMMUNITIES</strong></p>
+<ul>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_networks_report_builder_page.htm?edition=&amp;impact=">Communities Users can now create reports</a>. If they had permission to view reports before, of course. This isn’t a license change, it’s a feature addition.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_networks_massactions.htm">Mass Actions</a> now available in communities.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_networks_partner_send_email.htm">Partners can send email from cases</a> meaning you can have a low-cost low-feature service cloud offshore hub with this now.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_networks_navigatetourl_fix.htm">Navigation</a> <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_networks_navigatetourl_fix.htm">Changes</a></li>
+</ul>
+<p><strong>REPORTING</strong></p>
+<ul>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_rd_subscription.htm">Reports now can send notifications about criteria being met</a>. Some weird workflow-report baby monster… but a cute one.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_rd_reports_row_level_formulas.htm">Salesforce is now Excel</a> by which I mean you can do row-level formulas instead of grouping-level. Beta feature. Lightning Only. Needs to be enabled.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_rd_reports_historical_tracking.htm">Historical Tracking</a> now in LEX</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_rd_conditionalformatga.htm">Conditional Formatting</a> is now GA.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_rd_dashboards_tables_resize.htm">Resizing column width in Dashboard Tables</a> is now possible thank god. AND YOU CAN <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_rd_dashboards_two_level_sorting.htm">GROUP BY MEASURE</a> OMG</li>
+</ul>
+<p><strong>ANALYTICS</strong></p>
+<ul>
+<li>Finally making Dashboards easier to use when embedded on a Record Page with the <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_bi_embed_filter_builder.htm">ability to easily filter to the current record.</a></li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_bi_asset_history_pilot.htm">VERSION TRACKING IN ANALYTICS!?</a> Wh…why has this taken so long?</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_bi_app_building_other_enhancements.htm">There is a list of fields available when editing SAQL now</a>, just incase you forgot the field called Oppty.Current_FQ1_Weighted. Oh and they made some text white.</li>
+<li>Who would have thought easily <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_bi_sort_dimensions.htm">sorting your data in an analytics tool</a> would take FOUR YEARS TO IMPLEMENT, but hey, it’s here now.</li>
+</ul>
+<p><strong>DEV</strong></p>
+<ul>
+<li>You can set <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_platform_event_batch.htm?edition=&amp;impact=">Checkpoints and lower batch size</a> for Platform Events Triggers. Short version is you’ll hit limits less and can replay stuff.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_platform_event_lwc_empapi.htm">LWC can now subscribe to events</a></li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_lwc_vf.htm">LWC usable in Visualforce pages</a></li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_change_event_triggers.htm">Process Change Event Messages in Apex Triggers</a></li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_debugging_debug_logs.htm">Debug log max size increased to 20MB</a></li>
+<li>Aura and LWC <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_lc_form_factor_support.htm">now support declaring for factors</a> meaning you can explicitely optimize for different devices</li>
+<li>New <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_console_new_js_api.htm">API Call in JS re: console</a> including a way to see if an element is popped out.</li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_security_pe_case_insensitive_deterministic_ga.htm">Encryption now allows case-insensitive queries</a></li>
+<li>Oh and minor extra but Prettier <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_dev_console_prettier.htm">is now integrated in the Dev Console</a> to format your stuff. Isn’t that cute yes it is eventhenameiscuteomg</li>
+</ul>
+<p><strong>LAUGHING, CRYING, WHAT’S THE DIFFERENCE</strong></p>
+<ul>
+<li>We normally don’t cover Pilots, but <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_forcecom_perm_set_group_muting.htm">Salesforce is piloting muted permissions in Permission Sets</a>. This may not seem like much but it goes against EVERYTHING that Salesforce has ever pushed regarding security configuration. If this goes live, make sure you only use this in specific instances, and document it thoroughly.</li>
+<li>As long as we’re on Pilots, the way  <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_forcecom_globalization_icu.htm">dates are handled</a> will change. Read up, devs.</li>
+<li>Salesforce <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_context_switch_classic_to_lex.htm">keeps context when changing from Classic to LEX</a>. Manly tears were shed. Womanly tears as well. Tears, tears of joy everywhere.</li>
+<li>The old <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_other_changes_territory_management_retirement.htm">Territory Management</a> is getting retired - and nothing of value was lost. Also the new territory management <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_features_core_territory_management.htm">is in LEX</a> now.</li>
+<li>Yo we put <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_record_page_default_view.htm">Classic display in your lightning</a> so you could classic when you lightning (beta featue). <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_record_page_activity_view.htm">Samesies for the Activities display</a></li>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_sales_features_core_currency.htm">Currency Field now displayable in Accounts and Opps</a>. To quote @henry<br>
+#6864, “It only took ten years lol”</li>
+<li>I… er. What ? <a href="https://releasenotes.docs.salesforce.com/en-us/summer19/release-notes/rn_mobile_s1_newfeat_path_celebration.htm?edition=&amp;impact=">Wut.</a></li>
+</ul>
+<hr>
+<p>This abridged version was graciously written up by the <strong>SF Discord</strong> <a href="https://discord.gg/8J5mvX7">https://discord.gg/8J5mvX7</a><br>
+We have a “website” now: <a href="https://sfxd.github.io/">https://sfxd.github.io/</a></p>
+
+
+            </div>
+            </article>
+
+        </div>
+      </div><!-- /#content -->
+    </div><!-- /#wrap -->
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="main-footer">
+      </div>
+      <!-- Sub footer -->
+      <div class="sub-footer">
+        <div class="container">
+          <div id="social-icons">
+            <ul>
+              <li class="social-icon discord">
+                <a class="fade-img" href="http://discord.gg" target="_blank" rel="tooltip" title="Discord">
+                  <img src="../assets/img/social/icons_discord.png" alt="Discord" />
+                </a>
+              </li>
+              <li class="social-icon salesforce">
+                <a class="fade-img" href="http://www.salesforce.com" target="_blank" rel="tooltip" title="Salesforce">
+                  <img src="../assets/img/social/icons_salesforce.png" alt="Salesforce" />
+                </a>
+              </li>
+            </ul>
+          </div> 
+          <div class="copyright-text">Copyright 2018. Powered by <a href='http://github.io/'>GitHub</a>
+          </div>  
+        </div>   
+      </div>
+    </footer>
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+
+    <script type="text/javascript" src="../assets/js/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="../assets/js/application.js"></script>
+
+    <script src="../assets/js/holder/holder.js"></script>
+
+  </body>
+</html>
