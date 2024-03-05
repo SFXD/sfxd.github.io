@@ -1,3 +1,6 @@
+# Archived due to full migration to Bookstack more than 5 years ago
+
+
 # SFXD.github.io
 The main wiki for SFXD
 
